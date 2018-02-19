@@ -1,5 +1,5 @@
 class InstructorProfilesController < ApplicationController
-  skip_before_filter :check_profile
+  skip_before_action :check_profile  #skip_before_filter unavailble now - scm
 
   def new
     @user.add_missing_contacts

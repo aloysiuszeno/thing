@@ -78,7 +78,8 @@ RSpec.configure do |config|
     PaperTrail.whodunnit = nil
   end
 
-  config.include FactoryGirl::Syntax::Methods
+  # change from FactoryGirl to FactoryBot - scm
+  config.include FactoryBot::Syntax::Methods
   config.include AuthMacros
 
   config.include Capybara::DSL

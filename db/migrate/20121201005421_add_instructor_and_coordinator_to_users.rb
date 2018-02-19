@@ -1,4 +1,4 @@
-class AddInstructorAndCoordinatorToUsers < ActiveRecord::Migration
+class AddInstructorAndCoordinatorToUsers < ActiveRecord::Migration[5.1]
   def change
     add_column :users, :instructor, :boolean
     add_column :users, :coordinator, :boolean

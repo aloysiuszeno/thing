@@ -3,7 +3,7 @@ class InstructorMailer < ActionMailer::Base
 
   layout 'email'
 
-  default from: 'pennsicuniversity@flame.org', css: 'email'
+  default from: 'aloysious@stasisleak.org', css: 'email'
 
   #
   # Send mail to an instructor, with optional replacable tags for certain
@@ -11,12 +11,12 @@ class InstructorMailer < ActionMailer::Base
   #
   def send_message(user, subject)
     @user = user
-    ids = Instructable.where(user_id: @user.id, schedule: 'Pennsic University').pluck(:id)
+    ids = Instructable.where(user_id: @user.id, schedule: 'EK University').pluck(:id)
     @instances = Instance.where(instructable_id: ids).includes(:instructable).order(:start_time)
     @name = @user.titled_sca_name
 
-    headers 'return-path' => 'pennsicuniversity@flame.org'
+    headers 'return-path' => 'aloysious@stasisleak.org'
 
-    mail(to: user.email, subject: "Pennsic University: #{subject}")
+    mail(to: user.email, subject: "EK University: #{subject}")
   end
 end
