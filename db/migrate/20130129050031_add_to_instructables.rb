@@ -1,4 +1,4 @@
-class AddToInstructables < ActiveRecord::Migration
+class AddToInstructables < ActiveRecord::Migration[5.1]
   def change
     remove_column :instructables, :parent
     add_column :instructables, :duration, :float

@@ -1,4 +1,4 @@
-class AddLocationTypeToInstructables < ActiveRecord::Migration
+class AddLocationTypeToInstructables < ActiveRecord::Migration[5.1]
   def change
     add_column :instructables, :location_type, :string, default: 'track'
     Instructable.reset_column_information

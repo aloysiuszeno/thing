@@ -1,4 +1,4 @@
-class AddProofreadCommentsToInstructable < ActiveRecord::Migration
+class AddProofreadCommentsToInstructable < ActiveRecord::Migration[5.1]
   def up
     add_column :instructables, :proofreader_comments, :text
     

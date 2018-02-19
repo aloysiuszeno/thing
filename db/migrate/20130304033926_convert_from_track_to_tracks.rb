@@ -1,4 +1,4 @@
-class ConvertFromTrackToTracks < ActiveRecord::Migration
+class ConvertFromTrackToTracks < ActiveRecord::Migration[5.1]
   def change
     add_column :users, :tracks, :string, array: true, default: '{}'
     User.reset_column_information

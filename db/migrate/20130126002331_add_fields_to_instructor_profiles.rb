@@ -1,4 +1,4 @@
-class AddFieldsToInstructorProfiles < ActiveRecord::Migration
+class AddFieldsToInstructorProfiles < ActiveRecord::Migration[5.1]
   def change
     add_column :instructor_profiles, :kingdom, :string
     add_column :instructor_profiles, :phone_number_onsite, :string

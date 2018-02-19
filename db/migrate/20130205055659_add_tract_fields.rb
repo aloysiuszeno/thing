@@ -1,4 +1,4 @@
-class AddTractFields < ActiveRecord::Migration
+class AddTractFields < ActiveRecord::Migration[5.1]
   def change
     add_column :instructables, :tract, :string
     add_column :users, :coordinator_tract, :string

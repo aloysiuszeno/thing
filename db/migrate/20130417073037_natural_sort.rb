@@ -1,30 +1,33 @@
-class NaturalSort < ActiveRecord::Migration
+class NaturalSort < ActiveRecord::Migration[5.1]
   def up
     execute <<-FLARG
-    CREATE OR REPLACE FUNCTION btrsort_nextunit(text) RETURNS text AS $$
-      SELECT
-        CASE WHEN $1 ~ '^[^0-9]+' THEN
-          COALESCE( SUBSTR( $1, LENGTH(SUBSTRING($1 FROM '[^0-9]+'))+1 ), '' )
-        ELSE
-          COALESCE( SUBSTR( $1, LENGTH(SUBSTRING($1 FROM '[0-9]+'))+1 ), '' )
-        END
-    $$ LANGUAGE SQL
-    IMMUTABLE;
 
-    CREATE OR REPLACE FUNCTION btrsort(text) RETURNS text AS $$
-      SELECT
-        CASE WHEN char_length($1) > 0 THEN
-          CASE WHEN $1 ~ '^[^0-9]+' THEN
-            RPAD(SUBSTR(COALESCE(SUBSTRING($1 FROM '^[^0-9]+'), ''), 1, 30), 30, ' ') || btrsort(btrsort_nextunit($1))
+CREATE OR REPLACE FUNCTION btrsort_nextunit (btrText text)
+RETURNS text
+RETURN (SELECT
+	CASE WHEN btrText REGEXP '^[0-9]+' <> 0 THEN
+		COALESCE (SUBSTRING( btrText, LENGTH(REGEXP_SUBSTR( btrText, '[^0-9]+'))+1), '')
+	ELSE
+		COALESCE (SUBSTRING( btrText, LENGTH(REGEXP_SUBSTR( btrText, '[0-9]+'))+1), '')
+	END
+);
+FLARG
+    execute <<-FLARG
+
+CREATE OR REPLACE FUNCTION btrsort( btrText text)
+RETURNS text
+RETURN (SELECT
+        CASE WHEN LENGTH(btrText) > 0 THEN
+          CASE WHEN btrText REGEXP '^[^0-9]+' <> 0 THEN
+            RPAD(SUBSTR(COALESCE(REGEXP_SUBSTR(btrText, '^[^0-9]+'), ''), 1, 30), 30, ' ') || btrsort(btrsort_nextunit(btrText))
           ELSE
-            LPAD(SUBSTR(COALESCE(SUBSTRING($1 FROM '^[0-9]+'), ''), 1, 30), 30, '0') || btrsort(btrsort_nextunit($1))
+            LPAD(SUBSTR(COALESCE(REGEXP_SUBSTR(btrText, '^[0-9]+'), ''), 1, 30), 30, '0') || btrsort(btrsort_nextunit(btrText))
           END
         ELSE
-          $1
+          btrText
         END
-      ;
-    $$ LANGUAGE SQL
-    IMMUTABLE;
+);
+
 FLARG
   end
 
