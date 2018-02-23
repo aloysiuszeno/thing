@@ -60,7 +60,6 @@ Rails.application.configure do
     port:    587,
     domain:  'stasisleak.org',
     user_name: 'scm',
-    password:  '}6n+~8XM5C',
     authentication: 'plain',
     enable_starttls_auto:true
   }
