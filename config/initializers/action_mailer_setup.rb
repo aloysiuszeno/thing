@@ -5,12 +5,13 @@ else
 end
 
 ActionMailer::Base.smtp_settings = {
-    :address              => "postmark.flame.org",
+    :address              => "smtp.stasisleak.org",
     :port                 => 587,
-    :domain               => "flame.org",
+    :domain               => "stasisleak.org",
     :user_name            => MultaArcana::secret_for(:smtp_username),
     :password             => MultaArcana::secret_for(:smtp_password),
     :authentication       => "plain",
     :enable_starttls_auto =>  true,
     :openssl_verify_mode  => 'none',
 }
+
