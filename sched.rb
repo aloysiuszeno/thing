@@ -6,11 +6,11 @@ require 'pp'
 
 include GriffinMarkdown
 
-@schedule = ARGV[0] || "Pennsic University"
+@schedule = ARGV[0] || "GNE University"
 puts "Rendering schedule for #{@schedule}"
 
-@render_notes_and_doodles = @schedule == "Pennsic University"
-@render_topic_list = @schedule == "Pennsic University"
+@render_notes_and_doodles = @schedule == "GNE University"
+@render_topic_list = @schedule == "GNE University"
 @draftit = false
 
 @location_label_width = 6
@@ -34,50 +34,42 @@ entries = {}
 @morning_hours =   [  9, 10, 11, 12, 13 ]
 @afternoon_hours = [ 14, 15, 16, 17, 18 ]
 
-ANS_ROOMS = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 19].map { |x| "A&S #{x}"}
+ANS_ROOMS = [1, 2, 3, 4, 5 ].map { |x| "A&S #{x}"}
 
-if @schedule == "Pennsic University"
+if @schedule == "GNE University"
   @locs1 = ANS_ROOMS
-  @locs1 << 'University-Battlefield'
-  @locs1 << 'Dance'
-  @locs1 << 'Games'
+  @locs1 << 'Battlefield'
+  @locs1 << 'Main Barn'
+  @locs1 << 'Back of Barn'
+  @locs1 << 'Youth Point'
+  @locs1 << 'Garden'
+  @locs1 << 'Smithing Works'
+  @locs1 << 'Bardic Grove'
+
 
   @locs2 = [
-    'Performing Arts',
-    'Amphitheater',
-    'Middle Eastern',
-    'Æthelmearc 1',
-    'Æthelmearc 2',
-    'Touch The Earth',
-    'Performing Arts Rehearsal',
-    'Livonia Smithery',
-    'Pine Box Traders',
-    'Bog U',
+    'Bardic Grove',
   ].sort
 elsif @schedule == "Battlefield"
   @locs1 = [
-    'North Battlefield',
-    'East Battlefield',
-    'West Battlefield',
-    'South Battlefield',
-    'White List',
-    'Blue List',
+    'Main Battlefield',
+    'Woods',
     'Fort',
+    'Archery Field',
     'Youth Combat List',
     'Thrown Weapons Range',
     'Thrown Weapons Tent',
-    'Rapier List 1',
-    'Rapier List 2',
-    'Rapier List 3',
-    'Rapier List 4',
+    'Fencing Field',
+    'Battlefield Tent',
   ].sort
 
   @locs2 = []
-elsif @schedule == "Artisan's Row"
+elsif @schedule == "Court"
   @locs1 = [
-    "Artisan's Row A",
-    "Artisan's Row B",
-    "Artisan's Row C",
+    "Main Barn",
+    "Main Battlefield",
+    "Archery Field",
+    "Rapier Field",
   ].sort
 
   @locs2 = []
@@ -129,13 +121,13 @@ instances.each do |instance|
   hour = instance.start_time.hour
   morning_check = @morning_hours.index(hour)
   afternoon_check = @afternoon_hours.index(hour)
-  if @schedule == "Pennsic University"
+  if @schedule == "GNE University"
     actual_loc = instance.location.gsub(/ Tent$/, '')
   else
     actual_loc = instance.location
   end
   loc = instance.instructable.location_nontrack? ? instance.instructable.camp_name : actual_loc
-  if @schedule == "Pennsic University"
+  if @schedule == "GNE University"
     loc.gsub!(/ Tent$/, '')
   end
   loc1_check = @locs1.index(loc) || @locs1.index(actual_loc)
@@ -698,10 +690,10 @@ pdf = Prawn::Document.new(page_size: [ 7.75 * 72, 10.25 * 72],
                           compress: true,
                           optimize_objects: true,
                           info: {
-                            Title: "Pennsic Schedule",
-                            Author: "thing.pennsicuniversity.org",
-                            Subject: "Pennsic Schedule",
-                            Keywords: "Pennsic Schedule",
+                            Title: "Great Northeastern War Schedule",
+                            Author: "gne.flame.org",
+                            Subject: "GNE Schedule",
+                            Keywords: "GNE Schedule",
                             Creator: "sched.rb",
                             CreationDate: Time.now
                           })

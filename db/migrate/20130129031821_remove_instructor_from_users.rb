@@ -1,4 +1,4 @@
-class RemoveInstructorFromUsers < ActiveRecord::Migration[5.1]
+class RemoveInstructorFromUsers < ActiveRecord::Migration
   def change
     remove_column :users, :instructor
   end

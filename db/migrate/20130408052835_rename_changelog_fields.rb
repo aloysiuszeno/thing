@@ -1,4 +1,4 @@
-class RenameChangelogFields < ActiveRecord::Migration[5.1]
+class RenameChangelogFields < ActiveRecord::Migration
   def change
     rename_column :changelogs, :model_id, :target_id
     rename_column :changelogs, :model_name, :target_type

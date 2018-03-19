@@ -15,6 +15,6 @@ module InstructorProfileHelper
   end
   
   def mailto_link_for_instructable(instructable)
-    '&lt;'.html_safe + mail_to(instructable.user.email, nil, subject: "Pennsic University: #{instructable.name}") + '&gt;'.html_safe
+    '&lt;'.html_safe + mail_to(instructable.user.email, nil, subject: "Great Northeastern University: #{instructable.name}") + '&gt;'.html_safe
   end
 end

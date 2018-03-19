@@ -1,0 +1,36 @@
+class NaturalSort < ActiveRecord::Migration[5.1]
+  def up
+    execute <<-FLARG
+
+CREATE OR REPLACE FUNCTION btrsort_nextunit (btrText text)
+RETURNS text
+RETURN (SELECT
+	CASE WHEN btrText REGEXP '^[0-9]+' <> 0 THEN
+		COALESCE (SUBSTRING( btrText, LENGTH(REGEXP_SUBSTR( btrText, '[^0-9]+'))+1), '')
+	ELSE
+		COALESCE (SUBSTRING( btrText, LENGTH(REGEXP_SUBSTR( btrText, '[0-9]+'))+1), '')
+	END
+);
+FLARG
+    execute <<-FLARG
+
+CREATE OR REPLACE FUNCTION btrsort( btrText text)
+RETURNS text
+RETURN (SELECT
+        CASE WHEN LENGTH(btrText) > 0 THEN
+          CASE WHEN btrText REGEXP '^[^0-9]+' <> 0 THEN
+            RPAD(SUBSTR(COALESCE(REGEXP_SUBSTR(btrText, '^[^0-9]+'), ''), 1, 30), 30, ' ') || btrsort(btrsort_nextunit(btrText))
+          ELSE
+            LPAD(SUBSTR(COALESCE(REGEXP_SUBSTR(btrText, '^[0-9]+'), ''), 1, 30), 30, '0') || btrsort(btrsort_nextunit(btrText))
+          END
+        ELSE
+          btrText
+        END
+);
+
+FLARG
+  end
+
+  def down
+  end
+end

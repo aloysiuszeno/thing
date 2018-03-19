@@ -58,19 +58,19 @@ class Coordinator::LocationsController < ApplicationController
   private
 
   def all_days?
-    @track == "Artisan's Row"
+    @track == "GNE University"
   end
 
   def render_pdf(filename, cache_filename = nil, user = nil)
     pdf = Prawn::Document.new(page_size: 'LETTER', page_layout: :landscape,
       :compress => true, :optimize_objects => true,
       :info => {
-        :Title => "Pennsic University #{Pennsic.year} Timesheet for #{@date}, track #{@track}",
-        :Author => 'Pennsic University',
-        :Subject => "Pennsic University #{Pennsic.year} Timesheet for #{@date}, track #{@track}",
-        :Keywords => "pennsic university Timesheet #{@date} #{@track}",
-        :Creator => 'Pennsic Univeristy Class Maker, http://thing.pennsicuniversity.org/',
-        :Producer => 'Pennsic Univeristy Class Maker',
+        :Title => "GNE University #{Pennsic.year} Timesheet for #{@date}, track #{@track}",
+        :Author => 'GNE University',
+        :Subject => "GNE University #{Pennsic.year} Timesheet for #{@date}, track #{@track}",
+        :Keywords => "gne university Timesheet #{@date} #{@track}",
+        :Creator => 'GNE Univeristy Class Maker, http://thing.pennsicuniversity.org/',
+        :Producer => 'GNE Univeristy Class Maker',
         :CreationDate => Time.now,
     })
 

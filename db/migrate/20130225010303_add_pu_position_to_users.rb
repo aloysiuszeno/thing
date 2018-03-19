@@ -1,4 +1,4 @@
-class AddPuPositionToUsers < ActiveRecord::Migration[5.1]
+class AddPuPositionToUsers < ActiveRecord::Migration
   def change
     add_column :users, :pu_staff, :boolean
   end

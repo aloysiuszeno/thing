@@ -54,5 +54,6 @@
         %li.nav-item= link_to 'Sign in or Sign up', new_user_session_path, class: 'nav-link'
       - if admin?
         = render :partial => 'admin/menu_additions'
+        = render :partial => 'admin/menu_perdayschedule'
       %li.divider-vertical
       %li.nav-item= link_to 'About', '/about', class: "nav-link"

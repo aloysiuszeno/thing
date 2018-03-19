@@ -1,4 +1,4 @@
-class RenameAttendanceLimitToMaterialLimit < ActiveRecord::Migration[5.1]
+class RenameAttendanceLimitToMaterialLimit < ActiveRecord::Migration
   def change
     rename_column :instructables, :attendance_limit, :material_limit
   end

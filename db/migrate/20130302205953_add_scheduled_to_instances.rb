@@ -1,4 +1,4 @@
-class AddScheduledToInstances < ActiveRecord::Migration[5.1]
+class AddScheduledToInstances < ActiveRecord::Migration
   def change
     add_column :instructables, :scheduled, :boolean, default: false
   end

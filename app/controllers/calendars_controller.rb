@@ -15,7 +15,7 @@ class CalendarsController < ApplicationController
 
       format.pdf {
         filename = [
-          'pennsic',
+          'gneuniv',
           Pennsic.year,
           date,
         ].compact.join('-') + '.pdf'
@@ -56,7 +56,7 @@ class CalendarsController < ApplicationController
 
       format.ics {
         filename = [
-          'pennsic',
+          'gneuniv',
           Pennsic.year,
           'all',
           schedule_filename_part,
@@ -78,7 +78,7 @@ class CalendarsController < ApplicationController
         no_page_numbers = params[:unnumbered].present?
 
         filename = [
-          'pennsic',
+          'gneuniv',
           Pennsic.year,
           'all',
           omit_descriptions ? 'brief' : nil,
@@ -103,7 +103,7 @@ class CalendarsController < ApplicationController
 
       format.csv {
         filename = [
-          'pennsic',
+          'gneuniv',
           Pennsic.year,
           'all',
           schedule_filename_part,
@@ -113,7 +113,7 @@ class CalendarsController < ApplicationController
         if uncached or !File.exists?(cache_filename)
           load_data(schedule)
           renderer = CalendarRenderer.new(@instances, @instructables)
-          data = renderer.render_csv(render_options, "pennsic-#{Pennsic.year}-full.csv")
+          data = renderer.render_csv(render_options, "gneuniv-#{Pennsic.year}-full.csv")
           cache_in_file(cache_filename, data)
         end
         send_file(cache_filename, type: Mime[:csv], disposition: "filename=#{filename}", filename: filename)
@@ -121,7 +121,7 @@ class CalendarsController < ApplicationController
 
       format.xlsx {
         filename = [
-          'pennsic',
+          'gneuniv',
           Pennsic.year,
           'all',
           schedule_filename_part,

@@ -2,6 +2,9 @@
   %a.nav-link.dropdown-toggle#adminDropdown{:href => '#', :data => {:toggle => 'dropdown'}, aria: {haspopup: "true", expanded: "false"}}
     Admin
   .dropdown-menu{aria: {labelledby: "adminDropdown"}}
+    = link_to 'Users', admin_users_path, class: 'dropdown-item'
+    = link_to 'Trackless Classes', coordinator_instructables_path(track: 'No Track'), class: 'dropdown-item'
+    .dropdown-divider
     %h6.dropdown-header Database Actions
     = link_to 'Backups', admin_backups_path, class: 'dropdown-item'
     = link_to 'Database Summary', admin_tracks_path, class: 'dropdown-item'
@@ -10,13 +13,6 @@
     = link_to 'Instructor Sign In', instructor_signin_admin_reports_path(format: :pdf), class: 'dropdown-item'
     = link_to 'Kingdom War Points', kingdom_war_points_admin_reports_path(format: :csv), class: 'dropdown-item'
     .dropdown-divider
-    %h6.dropdown-header Per-day schedules
-    - Instructable::CLASS_DATES.each do |date|
-      = link_to "#{date} onward", calendar_path(date, format: :pdf, target: '_blank'), class: 'dropdown-item'
-    .dropdown-divider
     %h6.dropdown-header Email Addresses
     = link_to 'Instructors', admin_instructor_email_list_index_path, class: 'dropdown-item'
     = link_to 'Track Leads', admin_track_lead_email_list_index_path, class: 'dropdown-item'
-    .dropdown-divider
-    = link_to 'Users', admin_users_path, class: 'dropdown-item'
-    = link_to 'Trackless Classes', coordinator_instructables_path(track: 'No Track'), class: 'dropdown-item'

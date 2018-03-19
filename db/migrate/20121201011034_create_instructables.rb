@@ -1,4 +1,4 @@
-class CreateInstructables < ActiveRecord::Migration[5.1]
+class CreateInstructables < ActiveRecord::Migration
   def change
     create_table :instructables do |t|
       t.integer :user_id
@@ -14,7 +14,6 @@ class CreateInstructables < ActiveRecord::Migration[5.1]
       t.text :description
       t.integer :handout_fee
       t.integer :material_fee
-      t.integer :year
 
       t.timestamps
     end

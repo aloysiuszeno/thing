@@ -2,8 +2,8 @@
 
 %header#overview.jumbotron
   .hero-unit.opening-page
-    %h1 Pennsic Events
-    %p Pennsic #{Pennsic.year}: #{Pennsic.dates.first} through #{Pennsic.dates.last}
+    %h1 Great Northeastern War Classes and Events
+    %p GNE #{Pennsic.year}: #{Pennsic.dates.first} through #{Pennsic.dates.last}
 
 .row
   .col
@@ -35,17 +35,17 @@
           %a.btn{:href => edit_user_instructor_profile_path(current_user) } Update instructor profile
       - else
         %p
-          Students come to Pennsic University classes to learn about a
+          Students come to GNE University classes to learn about a
           huge variety of topics.  Perhaps you have something to share?
         - if user_signed_in?
           %p
-            If you wish to share your knowledge and teach at Pennsic, you
+            If you wish to share your knowledge and teach at GNE, you
             must first create a profile.
           %p
             %a.btn{:href => new_user_instructor_profile_path(current_user) } Become an instructor
         - else
           %p
-            Sign in or sign up to request to teach a class at Pennsic,
+            Sign in or sign up to request to teach a class at GNE,
             or to manage those you are already teaching.
     .col-md
       %h3 Students
@@ -54,7 +54,8 @@
           Create a schedule of just the classes you want to attend.
           Then, download this schedule in PDF to view or print.
           You can also download it into your calendar, for your computer
-          or mobile device.
+          or mobile device. Keep in mind that classes can change, so
+          you might want to visit again after you are packed to attend. 
       - else
         %p
           Sign in or sign up to create a customized schedule of just the

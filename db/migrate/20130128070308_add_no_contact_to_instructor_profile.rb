@@ -1,4 +1,4 @@
-class AddNoContactToInstructorProfile < ActiveRecord::Migration[5.1]
+class AddNoContactToInstructorProfile < ActiveRecord::Migration
   def change
     add_column :instructor_profiles, :no_contact, :boolean
   end

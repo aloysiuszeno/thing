@@ -1,4 +1,4 @@
-class AddRequestsToUsers < ActiveRecord::Migration[5.1]
+class AddRequestsToUsers < ActiveRecord::Migration
   def change
     add_column :users, :instructor_requested, :boolean
   end

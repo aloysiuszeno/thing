@@ -1,4 +1,4 @@
-class SetDefaultOnBooleans < ActiveRecord::Migration[5.1]
+class SetDefaultOnBooleans < ActiveRecord::Migration
   def change
     Instructable.all do |i|
       i.approved ||= false
@@ -12,16 +12,16 @@ class SetDefaultOnBooleans < ActiveRecord::Migration[5.1]
     change_column :instructables, :heat_source, :boolean, default: false
     change_column :instructables, :adult_only, :boolean, default: false
 
-    User.all do |u|
-      u.admin ||= false
-      u.save!(validate: false)
-    end
-    change_column :users, :admin, :boolean, default: false
-
     InstructorProfile.all do |i|
       i.no_contact ||= false
       i.save!(validate: false)
     end
     change_column :instructor_profiles, :no_contact, :boolean, default: false
+
+    User.all do |u|
+      u.admin ||= false
+      u.save!(validate: false)
+    end
+    change_column :users, :admin, :boolean, default: false
   end
 end

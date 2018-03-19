@@ -1,10 +1,10 @@
 
 def render_ics
-  filename = "pennsic-#{Schedule::PENNSIC_YEAR}-all.ics"
+  filename = "gneuniv-#{Schedule::PENNSIC_YEAR}-all.ics"
   cache_filename = Rails.root.join('tmp', filename)
 
   render_options = {}
-  render_options[:calendar_name] = "PennsicU #{Schedule::PENNSIC_YEAR}"
+  render_options[:calendar_name] = "Great Northeastern War #{Schedule::PENNSIC_YEAR}"
 
   renderer = CalendarRenderer.new(@instances, @instructables)
   data = renderer.render_ics(render_options, filename, cache_filename)
@@ -13,7 +13,7 @@ end
 
 def render_pdf(omit_descriptions, no_page_numbers)
   filename = [
-    "pennsic-#{Schedule::PENNSIC_YEAR}-all",
+    "gneuniv-#{Schedule::PENNSIC_YEAR}-all",
     omit_descriptions ? 'brief' : nil,
     no_page_numbers ? 'unnumbered' : nil,
   ].compact.join('-') + '.pdf'
@@ -31,24 +31,24 @@ end
 
 
 def render_csv
-  filename = "pennsic-#{Schedule::PENNSIC_YEAR}-all.csv"
+  filename = "gneuniv-#{Schedule::PENNSIC_YEAR}-all.csv"
   cache_filename = Rails.root.join('tmp', filename)
 
   render_options = {}
 
   renderer = CalendarRenderer.new(@instances, @instructables)
-  data = renderer.render_csv(render_options, "pennsic-#{Schedule::PENNSIC_YEAR}-all.csv")
+  data = renderer.render_csv(render_options, "gneuniv-#{Schedule::PENNSIC_YEAR}-all.csv")
   cache_in_file(cache_filename, data)
 end
 
 def render_xlsx
-  filename = "pennsic-#{Schedule::PENNSIC_YEAR}-all.xlsx"
+  filename = "gneuniv-#{Schedule::PENNSIC_YEAR}-all.xlsx"
   cache_filename = Rails.root.join('tmp', filename)
 
   render_options = {}
 
   renderer = CalendarRenderer.new(@instances, @instructables)
-  data = renderer.render_xlsx(render_options, "pennsic-#{Schedule::PENNSIC_YEAR}-all.xlsx")
+  data = renderer.render_xlsx(render_options, "gneuniv-#{Schedule::PENNSIC_YEAR}-all.xlsx")
   cache_in_file(cache_filename, data)
 end
 
@@ -81,7 +81,7 @@ last_date = nil
 
 while true
   current_date = get_updated_at
-  if (last_date != current_date) or !File.exists?("tmp/pennsic-#{Schedule::PENNSIC_YEAR}-all.csv")
+  if (last_date != current_date) or !File.exists?("tmp/gneuniv-#{Schedule::PENNSIC_YEAR}-all.csv")
     last_date = current_date
 
     puts "#{Time.now} - Generating..."

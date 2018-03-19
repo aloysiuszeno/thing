@@ -5,7 +5,7 @@ else
 end
 
 ActionMailer::Base.smtp_settings = {
-    :address              => "smtp.stasisleak.org",
+    :address              => "mail.gandi.net",
     :port                 => 587,
     :domain               => "stasisleak.org",
     :user_name            => MultaArcana::secret_for(:smtp_username),

@@ -1,4 +1,4 @@
-class CreateChangelog < ActiveRecord::Migration[5.1]
+class CreateChangelog < ActiveRecord::Migration
   def change
     create_table :changelogs do |t|
       t.integer :user_id

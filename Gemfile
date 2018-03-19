@@ -10,7 +10,7 @@ gem 'rails', '5.1.4' # was 5.0.6 - scm
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-# gem 'pg'  # don't need postgre db gem -scm
+gem 'pg', '~> 0.18'  # postgre db gem , but not v 1.0.0, which is not compatible -scm
 gem 'mysql2'
 gem 'sidekiq'
 

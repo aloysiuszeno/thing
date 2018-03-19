@@ -1,4 +1,4 @@
-class AddScheduleToInstructable < ActiveRecord::Migration[5.1]
+class AddScheduleToInstructable < ActiveRecord::Migration
   def change
     add_column :instructables, :schedule, :string
   end

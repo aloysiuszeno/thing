@@ -1,10 +1,10 @@
 class Pennsic
   def self.year
-    Time.now.year - 1972 + 1
+    Time.now.year - 1986 #GNE YEAR
   end
 
   def self.as
-    'LII'
+    'LIII'
   end
 
   def self.calendar_year
@@ -12,7 +12,7 @@ class Pennsic
   end
 
   def self.dates
-    (Date.parse('2018-07-27')..Date.parse('2018-08-12')).to_a
+    (Date.parse('2018-07-12')..Date.parse('2018-07-15')).to_a
   end
 
   def self.dates_formatted
@@ -20,7 +20,7 @@ class Pennsic
   end
 
   def self.class_dates_raw
-    (Date.parse('2018-07-30')..Date.parse('2018-08-10')).to_a
+    (Date.parse('2018-07-13')..Date.parse('2018-07-14')).to_a
   end
 
   def self.class_dates
@@ -28,6 +28,6 @@ class Pennsic
   end
 
   def self.class_times
-    [ '9am to Noon', 'Noon to 3pm', '3pm to 6pm', 'After 6pm' ]
+    [ '9am to Noon', 'Noon to 3pm', '3pm to 6pm' ]
   end
 end

@@ -1,0 +1,6 @@
+%li.nav-item.dropdown
+  %a.nav-link.dropdown-toggle#adminDropdown{:href => '#', :data => {:toggle => 'dropdown'}, aria: {haspopup: "true", expanded: "false"}}
+    Per-day Schedules
+  .dropdown-menu{aria: {labelledby: "adminDropdown"}}
+    - Instructable::CLASS_DATES.each do |date|
+      = link_to "#{date} onward", calendar_path(date, format: :pdf, target: '_blank'), class: 'dropdown-item'

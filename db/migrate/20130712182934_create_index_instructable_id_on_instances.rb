@@ -1,5 +1,5 @@
-class CreateIndexInstructableIdOnInstances < ActiveRecord::Migration[5.1]
+class CreateIndexInstructableIdOnInstances < ActiveRecord::Migration
   def change
-#    add_index :instances, [:instructable_id]
+    add_index :instances, [:instructable_id]
   end
 end

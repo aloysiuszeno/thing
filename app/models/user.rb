@@ -56,9 +56,9 @@ class User < ApplicationRecord
 
   # SCA kingdoms, lowercase.
   KINGDOMS = [
-    'æthelmearc', 'ansteorra', 'an tir', 'artemisia', 'atenveldt', 'atlantia',
+    'east', 'æthelmearc', 'ansteorra', 'an tir', 'artemisia', 'atenveldt', 'atlantia',
     'caid', 'calontir',
-    'drachenwald', 'ealdormere', 'east',
+    'drachenwald', 'ealdormere', 
     'gleann abhann',
     'lochac',
     'meridies', 'middle',
@@ -252,12 +252,12 @@ class User < ApplicationRecord
   end
 
   def default_values
-    self.class_limit ||= 4
+    self.class_limit ||= 10
   end
 
   def compress_tracks
     self.tracks ||= []
-    self.tracks = tracks.select { |x| x.present? }.sort
+    self.tracks = Array.wrap(tracks).select { |x| x.present? }.sort
   end
 
   def compress_available_days

@@ -17,6 +17,6 @@ class InstructorMailer < ActionMailer::Base
 
     headers 'return-path' => 'aloysious@stasisleak.org'
 
-    mail(to: user.email, subject: "EK University: #{subject}")
+    mail(to: user.email, subject: "GNE University: #{subject}")
   end
 end

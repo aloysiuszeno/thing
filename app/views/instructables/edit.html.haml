@@ -37,7 +37,7 @@
                 - disabled = false
               - if admin?
                 %td= i.input :override_location, label: false, input_html: { class: '' }
-              %td= i.input :start_time, label: false, as: :string, input_html: { data: { startdatetime: Instructable::CLASS_DATES.first + ' 12:00am', enddatetime: Instructable::CLASS_DATES.last + ' 06:00pm' }, class: 'input-medium datetimepicker', value: i.object.start_time.present? ? i.object.start_time.strftime('%Y-%m-%d %H:%M') : '' }, disabled: disabled
+              %td= i.input :start_time, label: false, as: :string, input_html: { data: { startdatetime: Instructable::CLASS_DATES.first + ' 8:00', enddatetime: Instructable::CLASS_DATES.last + ' 23:59' }, class: 'input-medium datetimepicker', value: i.object.start_time.present? ? i.object.start_time.strftime('%Y-%m-%d %H:%M') : '' }, disabled: disabled
               - unless @instructable.location_nontrack?
                 %td= i.input :location, label: false, as: :select, collection: locations, input_html: { class: 'input-medium' }, disabled: disabled
                 - location_was_overridden ||= disabled
@@ -110,7 +110,7 @@
     = f.input :location_type, label: 'Private camp or merchant?', as: :select, collection: [%w(No track), ['Merchant Booth', 'merchant-booth'], ['Private Camp', 'private-camp']], include_blank: false
     #location-camp
       = f.input :camp_name, required: true, label: 'Camp or Merchant Booth Name', hint: 'If this class is being taught in a camp or merchant booth, enter the camp or merchant name.'
-      = f.input :camp_address, label: 'Camp or Booth Location', hint: 'If using a camp or merchant booth, enter its location here (e.g, N06)'
+      = f.input :camp_address, label: 'Camp or Booth Location', hint: 'If using a camp or merchant booth, enter its location here:'
       = f.input :camp_reason, required: true, label: 'Reason for teaching in a private camp or booth'
 
   %fieldset
@@ -124,10 +124,10 @@
       %br
       Classes designed exclusively for students under the age of 18 must
       be scheduled with Youth Point
-      = link_to '(pennsic.youth@gmail.com)', 'mailto:pennsic.yough@gmail.com'
+      = link_to '(gne.youth@gmail.com)', 'mailto:gne.youth@gmail.com'
       %br
       %br
-      Pennsic University classes targeted at students under 18 years of
+      Great Northeastern University classes targeted at students under 18 years of
       age MAY NOT be scheduled in Private Camps or Merchant Booths.
 
     = f.input :adult_only
@@ -145,14 +145,14 @@
   %fieldset
     %legend Scheduling Requests
     %p.alert.alert-info
-      Requested days and times are best effort.  Leave them all blank, and we will use the days you will be attending Pennsic from your profile.
+      Requested days and times are best effort.  Leave them all blank, and we will use the days you will be attending GNE War from your profile.
     = f.input :requested_days, as: :check_boxes, checked: @instructable.requested_days, collection: Instructable::CLASS_DATES, label_method: :to_s, hint: "Select the days you prefer to teach this class, or leave blank and your profile's days will be used."
     = f.input :requested_times, as: :check_boxes, checked: @instructable.requested_times, collection:Instructable::CLASS_TIMES, hint: 'Select the times you prefer to teach this class, or leave blank to indicate anytime is OK.'
     = f.input :scheduling_additional, input_html: { rows: 3, class: 'input-xxlarge' }, placeholder: 'Please describe any additional scheduling requests, such as "Avoid conflicting with battles", etc.'
 
   %fieldset
     %legend Special Needs
-    = f.input :special_needs, as: :check_boxes, checked: @instructable.special_needs, collection: [ 'Electricity', 'Whiteboard and Markers', 'LOUD class', 'Running water', 'Messy class area', 'In Persona', 'Instrumental or Vocal Performance' ]
+    = f.input :special_needs, as: :check_boxes, checked: @instructable.special_needs, collection: [ 'Electricity', 'LOUD class', 'Messy class area', 'Instrumental or Vocal Performance' ]
     = f.input :special_needs_description, placeholder: 'Sanitary disposal, excess or hazardous waste removal, etc', input_html: { rows: 3, class: 'input-xxlarge' }
     = f.input :heat_source, inline_label: 'Are you using a source of heat of any type?'
     #heat-source

@@ -15,7 +15,7 @@ class CalendarRenderer
     @options = options
     @options = {} if options.nil?
     @options.reverse_merge!({
-      calendar_name: "Pennsic #{Pennsic.year} Master Schedule",
+      calendar_name: "GNE #{Pennsic.year} Master Schedule",
       calendar_id: 'all',
     })
 
@@ -26,7 +26,7 @@ class CalendarRenderer
       cal.prodid = '//flame.org//PennsicU Converter.0//EN'
       cal.add_x_property('X-WR-CALNAME', @options[:calendar_name])
       cal.add_x_property('X-WR-RELCALID', make_uid) # should be static per calendar
-      cal.add_x_property('X-WR-CALDESC', "PennsicU #{Pennsic.year} Master Schedule")
+      cal.add_x_property('X-WR-CALDESC', "GNEU #{Pennsic.year} Master Schedule")
       cal.add_x_property('X-PUBLISHED-TTL', '3600')
 
       @instances.each { |instance|
@@ -79,7 +79,7 @@ class CalendarRenderer
       omit_table_headers: false
     })
     pp @options
-    @render_instructors = @options[:schedule] == 'Pennsic University'
+    @render_instructors = @options[:schedule] == 'GNE University'
 
     generate_magic_tokens unless @options[:no_long_descriptions].present?
 
@@ -94,12 +94,12 @@ class CalendarRenderer
       compress: true,
       optimize_objects: true,
       info: {
-        Title: "Pennsic #{Pennsic.year} Master Schedule",
-        Author: 'Pennsic',
-        Subject: "Pennsic #{Pennsic.year} Master Schedule",
-        Keywords: 'pennsic university classes martial thrown weapons master schedule',
-        Creator: 'Pennsic Univeristy Class Maker, http://thing.pennsicuniversity.org/',
-        Producer: 'Pennsic Univeristy Class Maker',
+        Title: "GNE #{Pennsic.year} Master Schedule",
+        Author: 'GNE',
+        Subject: "GNE #{Pennsic.year} Master Schedule",
+        Keywords: 'gne northeastern university classes martial thrown weapons master schedule',
+        Creator: 'GNE Univeristy Class Maker, http://malagentia.eastkingdom.org/gnew/',
+        Producer: 'GNE Univeristy Class Maker',
         CreationDate: Time.now,
     })
 
@@ -432,6 +432,6 @@ class CalendarRenderer
     items << @options[:calendar_id] or 'all'
     d = Digest::SHA1.new
     d << items.join('/')
-    d.hexdigest + '@pennsic.flame.org'
+    d.hexdigest + '@gnew.flame.org'
   end
 end

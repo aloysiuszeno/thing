@@ -1,4 +1,4 @@
-class ChangeLocationToString < ActiveRecord::Migration[5.1]
+class ChangeLocationToString < ActiveRecord::Migration
   def change
     change_column :instructables, :location, :string
   end

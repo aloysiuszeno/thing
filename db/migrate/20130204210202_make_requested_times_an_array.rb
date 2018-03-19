@@ -1,4 +1,4 @@
-class MakeRequestedTimesAnArray < ActiveRecord::Migration[5.1]
+class MakeRequestedTimesAnArray < ActiveRecord::Migration
   def up
     add_column :instructables, :requested_times, :string, array: true
     Instructable.reset_column_information

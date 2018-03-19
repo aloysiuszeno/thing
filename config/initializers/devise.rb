@@ -1,12 +1,12 @@
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
 Devise.setup do |config|
-  config.secret_key = 'a4278db9f0442b3c3d9211ad11edeef2ccd1cb669205b78c4a18f298278cdd1f247051f9e946acc15b860c9190b8c7910be5a5acef5f20193a942089fca830ee'
+  config.secret_key = MultaArcana::secret_for(:devise_secret_key)
 
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class with default "from" parameter.
-  config.mailer_sender = 'thing@flame.org'
+  config.mailer_sender = 'scm@stasisleak.org'
 
   # Configure the class responsible to send e-mails.
   # config.mailer = "Devise::Mailer"

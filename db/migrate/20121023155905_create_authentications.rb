@@ -1,7 +1,7 @@
-class CreateAuthentications < ActiveRecord::Migration[5.1]
+class CreateAuthentications < ActiveRecord::Migration
   def change
     create_table :authentications do |t|
-      t.references :user  # this now adds index by default -scm
+      t.references :user
       t.string :provider
       t.string :uid
       t.string :oauth
@@ -9,6 +9,6 @@ class CreateAuthentications < ActiveRecord::Migration[5.1]
 
       t.timestamps
     end
-    #  add_index :authentications, :user_id # not needed in rails 5.1 -scm
+    add_index :authentications, :user_id
   end
 end

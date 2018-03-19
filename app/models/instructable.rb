@@ -107,85 +107,47 @@ class Instructable < ApplicationRecord
   }
 
   TRACKS = {
-    'Pennsic University' => [
-      'A&S 1', 'A&S 2', 'A&S 3', 'A&S 4', 'A&S 5', 'A&S 6',
-      'A&S 7', 'A&S 8', 'A&S 9', 'A&S 10', 'A&S 11', 'A&S 12',
-      'A&S 13', 'A&S 14', 'A&S 15', 'A&S 16', 'A&S 17', 'A&S 18', 'A&S 19',
-      'Bog U', 'University-Battlefield', 'RS1', 'RS2', 'RS3'
+    'GNE University' => [
+      'A&S 1', 'A&S 2', 'A&S 3', 'A&S 4', 'A&S 5', 
+      'Battlefield', 'Youth Point', 'Main Barn', 'Back of Barn', 'Garden', 'Bardic Grove', 'Smithing Works'
     ],
-    'Middle Eastern' => [ 'Touch The Earth', 'Middle Eastern Tent' ],
-    'European Dance' => [ 'Dance Tent' ],
-    'Games' => [ 'Games Tent' ],
-    'Performing Arts and Music' => [ 'Amphitheater', 'Performing Arts Tent', 'Performing Arts Rehearsal Tent', 'A&S 9' ],
-    'Cooking Lab' => [ 'Æthelmearc Cooking Lab' ],
-    'Æthelmearc Scribal' => ['Æthelmearc 1', 'Æthelmearc 2', 'Æthelmearc 3' ],
-    'Heraldry' => ['A&S 2'],
-    'Glass' => ['A&S 4'],
+    'Dance' => [ 'Barn' ],
+    'Performing Arts and Music' => [ 'Bardic Grove', 'A&S 1', 'A&S 2', 'A&S 3', 'A&S 4', 'A&S 5' ],
     'Thrown Weapons' => [
-      'Atl. Atl. Range',
-      'Thrown Weapons Populace Range',
       'Thrown Weapons Range',
       'Thrown Weapons Tent',
-      'Thrown Weapons Training Range',
     ],
     'Archery' => [
-      'Archery',
+      'Archery Range',
       'Archery Tent',
-      'Family Range',
-      'General Archery',
-      'Novelty Range'
     ],
-    'Parent/Child' => ['A&S 6'],
-    'First Aid' => ['A&S 14'],
-    'Youth Combat' => [ 'Youth Combat List' ],
-    'In Persona' => [ 'A&S 1' ],
+    'Youth' => [ 'Youth Point' ],
     'Martial Activities' => [
-      'Battlefield List',
-      'Blue List',
-      'East Battlefield',
+      'Battlefield',
       'Fort',
-      'Green List',
-      'Gunnery Point',
+      'Woods',
+      'Combat Archery Field',
       'Inspection Point',
-      'Main Battlefield',
       "Marshal's Point",
-      'North Battlefield',
-      'Red List',
-      'South Battlefield',
-      'West Battlefield',
-      'White List',
     ],
-    'Rapier Activities' => [
-      'Rapier List 1',
-      'Rapier List 2',
-      'Rapier List 3',
-      'Rapier List 4',
-      'Rapier Field',
-      'Rapier Tent',
-      'Rapier Youth List',
+    'Fencing Activities' => [
+      'Fencing Field',
+      'Fencing Tent',
+      'Main Barn',
     ],
-    'Party' => ['Battlefield', 'Great Hall', 'Rune Stone Park'],
-    'Court' => ['Great Hall'],
-    'Event' => ['Great Hall', 'Rune Stone Park'],
-    "Artisan's Row" => [
-      "Artisan's Row A",
-      "Artisan's Row B",
-      "Artisan's Row C"
-    ],
+    'Court' => ['Main Barn', 'Battlefield', 'Archery Field', 'Rapier Field'],
     'Youth Point' => [ 'Youth Point' ],
-    'Bog U' => [ 'Bog U' ],
-    'Maghribi' => [ 'A&S 16'],
   }
 
   SCHEDULES = [
-      'Pennsic University',
+      'GNE University',
       'War Point',
-      "Artisan's Row",
+      "Arts & Sciences",
       'Court',
-      'Event',
-      'Party',
+      'Fencing',
       'Battlefield',
-      'Performances',
+      'Bardic',
+      'Archery',
   ]
 
   def topic=(value)
@@ -407,18 +369,18 @@ class Instructable < ApplicationRecord
   end
 
   def set_default_track
-    self.track ||= 'Pennsic University'
+    self.track ||= 'GNE University'
   end
 
   def compress_arrays
     self.requested_days ||= []
-    self.requested_days = requested_days.select { |x| x.present? }
+    self.requested_days = Array.wrap(self.requested_days).select { |x| x.present? }
 
     self.requested_times ||= []
-    self.requested_times = requested_times.select { |x| x.present? }
+    self.requested_times = Array.wrap(self.requested_times).select { |x| x.present? }
 
     self.special_needs ||= []
-    self.special_needs = special_needs.select { |x| x.present? }
+    self.special_needs = Array.wrap(self.special_needs).select { |x| x.present? }
   end
 
   def check_fees_for_zero
