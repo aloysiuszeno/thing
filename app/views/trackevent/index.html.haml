@@ -1,0 +1,17 @@
+- title 'Track Events'
+
+%table.table
+  %thead
+    %tr
+      %th.delete_clicky Delete
+      %th Title
+      %th Sessions
+      %th Track and Topic
+      %th Scheduled Date
+  %tbody
+    = render :partial => @trackevents
+
+- if @target_user.coordinator?
+  .add-button= link_to 'Request an event', new_user_trackevent_path(@target_user), :class => 'btn btn-primary'
+
+= page_navigation_links @trackevents

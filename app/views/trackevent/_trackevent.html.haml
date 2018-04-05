@@ -1,0 +1,9 @@
+%tr
+  %td.delete_clicky
+    = link_to 'Delete', user_trackevent_path(instructable.user, instructable), confirm: "Are you sure you want to delete '#{instructable.name}'?", method: :delete, class: 'btn'
+  %td= link_to(markdown_html(instructable.name), edit_user_trackevent_path(instructable.user, instructable))
+  %td= instructable.repeat_count
+  %td
+    = instructable.formatted_culture_and_topic
+  %td
+    = render :partial => 'trackevent_schedule_details', locals: { instructable: instructable }

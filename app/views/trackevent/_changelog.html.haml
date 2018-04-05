@@ -1,0 +1,18 @@
+- changelogs = instructable.changelogs.order('created_at DESC')
+- changelogs.each do |changelog|
+  - next if changelog.useless?
+  %h4= changelog.created_at.to_s(:pennsic)
+  - if changelog.user
+    %h5= changelog.user.best_name
+  - else
+    %h5 [deleted]
+  %table.table.table-bordered#changelog-modal
+    %thead
+      %tr
+        %th.field Field
+        %th.old-value Change
+    %tbody
+      - Changelog.decompose(changelog.changelog).each do |field, changes|
+        %tr
+          %td= field
+          %td= html_diff(changes[0].to_s, changes[1].to_s)

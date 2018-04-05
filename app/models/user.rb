@@ -56,7 +56,7 @@ class User < ApplicationRecord
 
   # SCA kingdoms, lowercase.
   KINGDOMS = [
-    'east', 'æthelmearc', 'ansteorra', 'an tir', 'artemisia', 'atenveldt', 'atlantia',
+    'east', 'æthelmearc', 'ansteorra', 'an tir', 'artemisia', 'atenveldt', 'atlantia', 'avacal',
     'caid', 'calontir',
     'drachenwald', 'ealdormere', 
     'gleann abhann',

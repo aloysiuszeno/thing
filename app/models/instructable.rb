@@ -112,7 +112,7 @@ class Instructable < ApplicationRecord
       'Battlefield', 'Youth Point', 'Main Barn', 'Back of Barn', 'Garden', 'Bardic Grove', 'Smithing Works'
     ],
     'Dance' => [ 'Barn' ],
-    'Performing Arts and Music' => [ 'Bardic Grove', 'A&S 1', 'A&S 2', 'A&S 3', 'A&S 4', 'A&S 5' ],
+    'Bardic Arts and Music' => [ 'Bardic Grove', 'A&S 1', 'A&S 2', 'A&S 3', 'A&S 4', 'A&S 5' ],
     'Thrown Weapons' => [
       'Thrown Weapons Range',
       'Thrown Weapons Tent',
@@ -121,8 +121,8 @@ class Instructable < ApplicationRecord
       'Archery Range',
       'Archery Tent',
     ],
-    'Youth' => [ 'Youth Point' ],
-    'Martial Activities' => [
+    'Youth' => [ 'Youth Point', 'Main Barn', 'Back of Barn' ],
+    'Heavy List' => [
       'Battlefield',
       'Fort',
       'Woods',
@@ -130,24 +130,24 @@ class Instructable < ApplicationRecord
       'Inspection Point',
       "Marshal's Point",
     ],
-    'Fencing Activities' => [
+    'Fencing' => [
       'Fencing Field',
       'Fencing Tent',
       'Main Barn',
     ],
-    'Court' => ['Main Barn', 'Battlefield', 'Archery Field', 'Rapier Field'],
-    'Youth Point' => [ 'Youth Point' ],
+    'Court' => ['Main Barn', 'Back of Barn', 'Battlefield', 'Archery Field', 'Fencing Field'],
+    'Arts and Sciences' => ['Main Barn', 'Back of Barn' ],
   }
 
   SCHEDULES = [
       'GNE University',
-      'War Point',
       "Arts & Sciences",
       'Court',
       'Fencing',
       'Battlefield',
       'Bardic',
       'Archery',
+      'Thrown Weapons'
   ]
 
   def topic=(value)
@@ -174,10 +174,10 @@ class Instructable < ApplicationRecord
   end
 
   validates_presence_of :name
-  validates_length_of :name, :within => 3..50
+  validates_length_of :name, :within => 3..80
 
   validates_presence_of :description_book
-  validates_length_of :description_book, :within => 10..150
+  validates_length_of :description_book, :within => 10..300
 
   validates_presence_of :duration
   validates_numericality_of :duration, greater_than: 0
