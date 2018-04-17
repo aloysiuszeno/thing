@@ -113,7 +113,7 @@ class InstructablesController < ApplicationController
     begin
       InstructablesMailer.on_create(@instructable, user_address).deliver_later
     rescue StandardError => e
-      flash[:error] = "Email could not be delivered to your account's email address, #{@instructable.user.email}.  However, the requested class was successfully added.  Please update your profile."
+      flash[:error] = "Email could not be delivered to your account's email address, #{@instructable.user.email}.  However, the requested class was successfully added.  Please update your profile. Error: #{e.class}: #{e.message}"
     end
 
     if Rails.env == 'production'
@@ -121,7 +121,7 @@ class InstructablesController < ApplicationController
         begin
           InstructablesMailer.on_create(@instructable, address).deliver_later
         rescue StandardError => e
-          flash[:error] = 'Email could not be sent to one or more track coordinators.  However, your class was added and will appear on their pending class lists.'
+          flash[:error] = 'Email could not be sent to one or more track coordinators.  However, your class was added and will appear on their pending class lists. Error: #{e.class}: #{e.message}'
         end
       end
     end

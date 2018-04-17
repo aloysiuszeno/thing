@@ -1,5 +1,8 @@
 if ["production", "development"].include?(Rails.env)
   ActionMailer::Base.delivery_method = :smtp # be sure to choose SMTP delivery
+  ActionMailer::Base.raise_delivery_errors = true 
+  ActionMailer::Base.perform_deliveries = true 
+
 else
   ActionMailer::Base.delivery_method = :test
 end
@@ -7,10 +10,9 @@ end
 ActionMailer::Base.smtp_settings = {
     :address              => "mail.gandi.net",
     :port                 => 587,
-    :domain               => "stasisleak.org",
-    :user_name            => MultaArcana::secret_for(:smtp_username),
-    :password             => MultaArcana::secret_for(:smtp_password),
-    :authentication       => "plain",
+    :user_name            => "",
+    :password             => "",
+    :authentication       => :plain,
     :enable_starttls_auto =>  true,
     :openssl_verify_mode  => 'none',
 }

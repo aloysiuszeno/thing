@@ -79,6 +79,7 @@ class Instructable < ApplicationRecord
     'Event' => [],
     'Fiber Arts' => %W(Dyeing Lace Needlework Sewing Spinning Weaving),
     'Food Arts' => [ 'Brewing and Vintning', 'Cookery', 'Herbs', 'Research' ],
+    'Gardening' => [],
     'Health and Safety' => [],
     'Heraldry' => [],
     'History' => %W(Research),
@@ -141,7 +142,6 @@ class Instructable < ApplicationRecord
 
   SCHEDULES = [
       'GNE University',
-      "Arts & Sciences",
       'Court',
       'Fencing',
       'Battlefield',
@@ -210,7 +210,7 @@ class Instructable < ApplicationRecord
 
   before_validation :compress_arrays
   before_validation :check_fees_for_zero
-  before_validation :set_default_track, on: :create
+  before_save :set_default_track, on: :create #was before_validation
   before_save :update_scheduled_flag
   after_save :adjust_instances
   after_save :check_for_proofread_changes
