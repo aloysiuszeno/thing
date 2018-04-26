@@ -10,8 +10,8 @@ end
 ActionMailer::Base.smtp_settings = {
     :address              => "mail.gandi.net",
     :port                 => 587,
-    :user_name            => "",
-    :password             => "",
+    :user_name            => "chancellor@gneuniversity.org",
+    :password             => MultaArcana::secret_for(:db_password),
     :authentication       => :plain,
     :enable_starttls_auto =>  true,
     :openssl_verify_mode  => 'none',
