@@ -1,5 +1,14 @@
 class CalendarsController < ApplicationController
 
+  def send_a_file(datafilepath, filename, filetype)
+    File.open(datafilepath, 'r') do |f|
+      send_data f.read.force_encoding('BINARY'),
+        :type => filetype[:type].to_str,
+      :disposition => "inline",
+      :filename => filename
+    end
+  end
+
   def show
     render_options = {}
 
@@ -34,7 +43,8 @@ class CalendarsController < ApplicationController
           data = renderer.render_pdf(render_options, filename, cache_filename)
           cache_in_file(cache_filename, data)
         end
-        send_file(cache_filename, type: Mime[:pdf], disposition: "inline; filename=#{filename}", filename: filename)
+        send_a_file cache_filename, filename, type: Mime[:pdf]
+    #    send_file(cache_filename, type: Mime[:pdf], disposition: "inline; filename=#{filename}", filename: filename)
       }
     end
   end
@@ -70,7 +80,8 @@ class CalendarsController < ApplicationController
           data = renderer.render_ics(render_options, filename, cache_filename)
           cache_in_file(cache_filename, data)
         end
-        send_file(cache_filename, type: Mime[:ics], disposition: "inline; filename=#{filename}", filename: filename)
+        send_a_file cache_filename, filename, type: Mime[:ics]
+#        send_file(cache_filename, type: Mime[:ics], disposition: "inline; filename=#{filename}", filename: filename)
       }
 
       format.pdf {
@@ -98,7 +109,8 @@ class CalendarsController < ApplicationController
           data = renderer.render_pdf(render_options, filename, cache_filename)
           cache_in_file(cache_filename, data)
         end
-        send_file(cache_filename, type: Mime[:pdf], disposition: "inline; filename=#{filename}", filename: filename)
+        send_a_file cache_filename, filename, type: Mime[:pdf]
+#        send_file(cache_filename, type: Mime[:pdf], disposition: "inline; filename=#{filename}", filename: filename)
       }
 
       format.csv {
@@ -116,7 +128,8 @@ class CalendarsController < ApplicationController
           data = renderer.render_csv(render_options, "gneuniv-#{Pennsic.year}-full.csv")
           cache_in_file(cache_filename, data)
         end
-        send_file(cache_filename, type: Mime[:csv], disposition: "filename=#{filename}", filename: filename)
+        send_a_file cache_filename, filename, type: Mime[:csv]
+#        send_file(cache_filename, type: Mime[:csv], disposition: "filename=#{filename}", filename: filename)
       }
 
       format.xlsx {
@@ -134,7 +147,8 @@ class CalendarsController < ApplicationController
           data = renderer.render_xlsx(render_options, filename)
           cache_in_file(cache_filename, data)
         end
-        send_file(cache_filename, type: Mime[:xlsx], disposition: "filename=#{filename}", filename: filename)
+        send_a_file cache_filename, filename, type: Mime[:xlsx]
+#        send_file(cache_filename, type: Mime[:xlsx], disposition: "filename=#{filename}", filename: filename)
       }
     end
   end

@@ -2,10 +2,6 @@
 - title "#{create_or_update} University Class"
 
 = simple_form_for [@target_user, @instructable], html: { :class => 'form-horizontal' } do |f|
-  - if @instructable.new_record?
-    %fieldset
-      %legend Leave blank for classes, select track for other schedules
-      = f.input :track, collection: Instructable::TRACKS.keys.sort, include_blank: (@instructable.track.blank? or !Instructable::TRACKS.keys.include?(@instructable.track))
   - if !@instructable.new_record? and coordinator_for?(@instructable.track)
     %fieldset
       %legend Scheduling
@@ -126,9 +122,8 @@
       be considered.
       %br
       %br
-      Classes designed exclusively for students under the age of 18 must
-      be scheduled with Youth Point
-      = link_to '(gne.youth@gmail.com)', 'mailto:gne.youth@gmail.com'
+      Classes designed exclusively for students under the age of 18 will
+      be scheduled by the Youth Point Coordinator.
       %br
       %br
       Great Northeastern University classes targeted at students under 18 years of

@@ -138,6 +138,9 @@ class Instructable < ApplicationRecord
     ],
     'Court' => ['Main Barn', 'Back of Barn', 'Battlefield', 'Archery Field', 'Fencing Field'],
     'Arts and Sciences' => ['Main Barn', 'Back of Barn' ],
+    'Gardening, Herbs' => [ 'Garden Spot'],
+    'Scribal Arts' => ['Main Barn', 'Back of Barn', 
+      'A&S 1', 'A&S 2', 'A&S 3', 'A&S 4', 'A&S 5'], 
   }
 
   SCHEDULES = [

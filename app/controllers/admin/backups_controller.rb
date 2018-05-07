@@ -3,10 +3,20 @@ class Admin::BackupsController < ApplicationController
     @backups = Backup.new.list_backup_files
   end
 
+  def send_a_file(datafilepath, filename, filetype)
+    File.open(datafilepath, 'r') do |f|
+      send_data f.read.force_encoding('BINARY'),
+        :type => filetype,
+      :disposition => "attachment",
+      :filename => filename
+    end
+  end
+  
   # download
   def show
     basename = params[:id].split('/').last + '.zip'  # ensure no directory
-    send_file Backup.new.backup_path.join(basename)
+    send_a_file Backup.new.backup_path.join(basename), basename, "application/octet-stream"
+#    send_file Backup.new.backup_path.join(basename)
   end
 
   # create new one

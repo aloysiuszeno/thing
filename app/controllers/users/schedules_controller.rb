@@ -1,5 +1,16 @@
 class Users::SchedulesController < ApplicationController
+  
   before_action :load_user
+
+  def send_a_file(datafilepath, filename, filetype)
+    puts "FIletype: #{filetype[:type].to_str}"
+    File.open(datafilepath, 'r') do |f|
+      send_data f.read.force_encoding('BINARY'),
+        :type => filetype[:type].to_str,
+      :disposition => "inline",
+      :filename => filename
+    end
+  end
 
   def show
     unless @user
@@ -34,7 +45,8 @@ class Users::SchedulesController < ApplicationController
         renderer = CalendarRenderer.new(@instances, @instructables)
         data = renderer.render_ics(render_options, filename, cache_filename)
         cache_in_file(cache_filename, data)
-        send_file(cache_filename, type: Mime[:ics], disposition: "inline; filename=#{filename}", filename: filename)
+        send_a_file cache_filename, filename, type: Mime[:ics]
+#        send_file(cache_filename, type: Mime[:ics], disposition: "inline; filename=#{filename}", filename: filename)
 #        File.unlink(cache_filename) if uncached
       }
 
@@ -58,7 +70,8 @@ class Users::SchedulesController < ApplicationController
         renderer = CalendarRenderer.new(@instances, @instructables)
         data = renderer.render_pdf(render_options, filename)
         cache_in_file(cache_filename, data)
-        send_file(cache_filename, type: Mime[:pdf], disposition: "inline; filename=#{filename}", filename: filename)
+        send_a_file cache_filename, filename, type: Mime[:pdf]
+#        send_file(cache_filename, type: Mime[:pdf], disposition: "inline; filename=#{filename}", filename: filename)
 #        File.unlink(cache_filename) if uncached
       }
 
@@ -73,7 +86,8 @@ class Users::SchedulesController < ApplicationController
         renderer = CalendarRenderer.new(@instances, @instructables)
         data = renderer.render_csv(render_options, "gneuniv-#{Pennsic.year}-user#{@user.id}.csv")
         cache_in_file(cache_filename, data)
-        send_file(cache_filename, type: Mime[:csv], disposition: "filename=#{filename}", filename: filename)
+        send_a_file cache_filename, filename, type: Mime[:csv]
+#        send_file(cache_filename, type: Mime[:csv], disposition: "filename=#{filename}", filename: filename)
       }
 
       format.xlsx {
@@ -87,7 +101,8 @@ class Users::SchedulesController < ApplicationController
         renderer = CalendarRenderer.new(@instances, @instructables)
         data = renderer.render_xlsx(render_options, "gneuniv-#{Pennsic.year}-user#{@user.id}.xlsx")
         cache_in_file(cache_filename, data)
-        send_file(cache_filename, type: Mime[:xlsx], disposition: "filename=#{filename}", filename: filename)
+        send_a_file cache_filename, filename, type: Mime[:xlsx]
+#        send_file(cache_filename, type: Mime[:xlsx], disposition: "filename=#{filename}", filename: filename)
 #        File.unlink(cache_filename) if uncached
       }
 
