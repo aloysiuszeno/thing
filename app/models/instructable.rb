@@ -69,6 +69,7 @@ class Instructable < ApplicationRecord
     'Middle Eastern',
     'Far Eastern',
     'Other',
+    'SCA'
   ]
 
   TOPICS = {
@@ -110,9 +111,9 @@ class Instructable < ApplicationRecord
   TRACKS = {
     'GNE University' => [
       'A&S 1', 'A&S 2', 'A&S 3', 'A&S 4', 'A&S 5', 
-      'Battlefield', 'Youth Point', 'Main Barn', 'Back of Barn', 'Garden', 'Bardic Grove', 'Smithing Works'
+      'Battlefield', 'Youth Point', 'Main Barn - Scribal', 'Main Barn - Stage', 'Back of Barn', 'Garden Spot', 'Bardic Grove', 'Smithing Works'
     ],
-    'Dance' => [ 'Barn' ],
+    'Dance' => [ 'Main Barn' ],
     'Bardic Arts and Music' => [ 'Bardic Grove', 'A&S 1', 'A&S 2', 'A&S 3', 'A&S 4', 'A&S 5' ],
     'Thrown Weapons' => [
       'Thrown Weapons Range',
@@ -122,7 +123,7 @@ class Instructable < ApplicationRecord
       'Archery Range',
       'Archery Tent',
     ],
-    'Youth' => [ 'Youth Point', 'Main Barn', 'Back of Barn' ],
+    'Youth' => [ 'Youth Point', 'Main Barn', 'Back of Barn', 'Battlefield', 'Thrown Weapons Range', 'Archery Range', 'Fencing Field' ],
     'Heavy List' => [
       'Battlefield',
       'Fort',
@@ -136,10 +137,10 @@ class Instructable < ApplicationRecord
       'Fencing Tent',
       'Main Barn',
     ],
-    'Court' => ['Main Barn', 'Back of Barn', 'Battlefield', 'Archery Field', 'Fencing Field'],
-    'Arts and Sciences' => ['Main Barn', 'Back of Barn' ],
+    'Court' => ['Main Barn', 'Back of Barn', 'Battlefield', 'Archery Field', 'Fencing Field', 'Roving'],
+    'Arts and Sciences' => ['Main Barn - A&S', 'Main Barn - Scribal', 'Main Barn - Stage', 'Back of Barn' ],
     'Gardening, Herbs' => [ 'Garden Spot'],
-    'Scribal Arts' => ['Main Barn', 'Back of Barn', 
+    'Scribal Arts' => ['Main Barn - Scribal', 'Main Barn - A&S', 'Main Barn - Stage', 'Back of Barn', 
       'A&S 1', 'A&S 2', 'A&S 3', 'A&S 4', 'A&S 5'], 
   }
 
@@ -150,7 +151,9 @@ class Instructable < ApplicationRecord
       'Battlefield',
       'Bardic',
       'Archery',
-      'Thrown Weapons'
+      'Thrown Weapons',
+      'Scribal Arts',
+      'Gardening'
   ]
 
   def topic=(value)
