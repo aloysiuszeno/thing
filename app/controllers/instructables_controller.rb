@@ -123,7 +123,7 @@ class InstructablesController < ApplicationController
 #          InstructablesMailer.on_create(@instructable, address).deliver_later
           InstructablesMailer.on_create(@instructable, address).deliver
         rescue StandardError => e
-          flash[:error] = 'Email could not be sent to one or more track coordinators.  However, your class was added and will appear on their pending class lists. Error: #{e.class}: #{e.message}'
+          flash[:error] = "Email could not be sent to one or more track coordinators.  However, your class was added and will appear on their pending class lists. Error: #{e.class}: #{e.message}"
         end
       end
     end
