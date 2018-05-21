@@ -89,7 +89,7 @@ class Instructable < ApplicationRecord
     'Maritime' => [],
     'Martial' => [
       'Archery',
-      'Heavy Weapons',
+      'Heavy List',
       'Historic Combat',
       'Rapier',
       'SCA Combat',
@@ -102,7 +102,7 @@ class Instructable < ApplicationRecord
     'Performance' => %w(Bardic Commedia Music Rehersal Storytelling Theater),
     'Performing Arts and Music' => [ 'Bardic', 'Commedia', 'Instrumental Music', 'Juggling', 'Rehersal', 'Storytelling', 'Theater', 'Vocal Music' ],
     'SCA Life' => %W(Court Heraldry Meetings Newcomers Persona),
-    'Sciences' => [ 'Astronomy', 'Animals', 'Black Powder', 'Equestrian', 'Gardens', 'Research' ],
+    'Arts & Sciences' => [ 'Astronomy', 'Animals', 'Black Powder', 'Equestrian', 'Gardens', 'Research', 'Exhibition', 'Competition' ],
     'Scribal Arts' => %w(Calligraphy Illumination),
     'Youth Combat' => [],
     'Other' => [],
@@ -111,7 +111,7 @@ class Instructable < ApplicationRecord
   TRACKS = {
     'GNE University' => [
       'A&S 1', 'A&S 2', 'A&S 3', 'A&S 4', 'A&S 5', 
-      'Battlefield', 'Youth Point', 'Main Barn - Scribal', 'Main Barn - Stage', 'Back of Barn', 'Garden Spot', 'Bardic Grove', 'Smithing Works'
+      'Battlefield', 'Info Point', 'Youth Point', 'Main Barn', 'Main Barn - Left', 'Main Barn - Right', 'Back Barn - A', 'Back Barn - B', 'Garden Spot', 'Bardic Grove', 'Smithing Works'
     ],
     'Dance' => [ 'Main Barn' ],
     'Bardic Arts and Music' => [ 'Bardic Grove', 'A&S 1', 'A&S 2', 'A&S 3', 'A&S 4', 'A&S 5' ],
@@ -123,7 +123,7 @@ class Instructable < ApplicationRecord
       'Archery Range',
       'Archery Tent',
     ],
-    'Youth' => [ 'Youth Point', 'Main Barn', 'Back of Barn', 'Battlefield', 'Thrown Weapons Range', 'Archery Range', 'Fencing Field' ],
+    'Youth' => [ 'Youth Point', 'Main Barn - Left', 'Main Barn - Right', 'Main Barn - Stage', 'Back Barn - A', 'Back Barn - B', 'Battlefield', 'Thrown Weapons Range', 'Archery Range', 'Fencing Field' ],
     'Heavy List' => [
       'Battlefield',
       'Fort',
@@ -137,10 +137,10 @@ class Instructable < ApplicationRecord
       'Fencing Tent',
       'Main Barn',
     ],
-    'Court' => ['Main Barn', 'Back of Barn', 'Battlefield', 'Archery Field', 'Fencing Field', 'Roving'],
-    'Arts and Sciences' => ['Main Barn - A&S', 'Main Barn - Scribal', 'Main Barn - Stage', 'Back of Barn' ],
+    'Court' => ['Main Barn', 'Back Barn', 'Battlefield', 'Archery Field', 'Fencing Field', 'Roving'],
+    'Arts & Sciences' => ['Main Barn - Right', 'Main Barn - Left', 'Main Barn - Stage', 'Main Barn', 'Back Barn - A', 'Back Barn - B', 'Info Point' ],
     'Gardening, Herbs' => [ 'Garden Spot'],
-    'Scribal Arts' => ['Main Barn - Scribal', 'Main Barn - A&S', 'Main Barn - Stage', 'Back of Barn', 
+    'Scribal Arts' => ['Back Barn - A', 'Back Barn - B', 'Main Barn', 'Main Barn - Left', 'Main Barn - Right', 'Main Barn - Stage', 
       'A&S 1', 'A&S 2', 'A&S 3', 'A&S 4', 'A&S 5'], 
   }
 
@@ -153,6 +153,7 @@ class Instructable < ApplicationRecord
       'Archery',
       'Thrown Weapons',
       'Scribal Arts',
+      'Arts & Sciences',
       'Gardening'
   ]
 
