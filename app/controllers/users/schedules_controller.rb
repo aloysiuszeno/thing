@@ -72,7 +72,7 @@ class Users::SchedulesController < ApplicationController
         cache_in_file(cache_filename, data)
         send_a_file cache_filename, filename, type: Mime[:pdf]
 #        send_file(cache_filename, type: Mime[:pdf], disposition: "inline; filename=#{filename}", filename: filename)
-#        File.unlink(cache_filename) if uncached
+        File.unlink(cache_filename) if uncached
       }
 
       format.csv {
@@ -103,7 +103,7 @@ class Users::SchedulesController < ApplicationController
         cache_in_file(cache_filename, data)
         send_a_file cache_filename, filename, type: Mime[:xlsx]
 #        send_file(cache_filename, type: Mime[:xlsx], disposition: "filename=#{filename}", filename: filename)
-#        File.unlink(cache_filename) if uncached
+        File.unlink(cache_filename) if uncached
       }
 
     end

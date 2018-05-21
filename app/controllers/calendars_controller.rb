@@ -4,8 +4,8 @@ class CalendarsController < ApplicationController
     File.open(datafilepath, 'r') do |f|
       send_data f.read.force_encoding('BINARY'),
         :type => filetype[:type].to_str,
-      :disposition => "inline",
-      :filename => filename
+        :disposition => "inline",
+        :filename => filename
     end
   end
 
