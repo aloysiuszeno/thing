@@ -94,6 +94,7 @@ class Instructable < ApplicationRecord
       'Rapier',
       'SCA Combat',
       'Thrown Weapons',
+      'Combat Archery',
       'War Points',
     ],
     'Meetings' => [],
@@ -105,6 +106,7 @@ class Instructable < ApplicationRecord
     'Arts & Sciences' => [ 'Astronomy', 'Animals', 'Black Powder', 'Equestrian', 'Gardens', 'Research', 'Exhibition', 'Competition' ],
     'Scribal Arts' => %w(Calligraphy Illumination),
     'Youth Combat' => [],
+    'Youth' => [],
     'Other' => [],
   }
 
@@ -154,7 +156,8 @@ class Instructable < ApplicationRecord
       'Thrown Weapons',
       'Scribal Arts',
       'Arts & Sciences',
-      'Gardening'
+      'Gardening',
+      'Youth'
   ]
 
   def topic=(value)
