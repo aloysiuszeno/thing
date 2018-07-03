@@ -49,6 +49,7 @@ class User < ApplicationRecord
     count countess viscount viscountess
     baron baroness
     master mistress
+    hlafdige cwen
     lord lady
     sir
     king queen

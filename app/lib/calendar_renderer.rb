@@ -4,7 +4,7 @@ class CalendarRenderer
   include GriffinPdf
   include GriffinMarkdown
 
-  PDF_FONT_SIZE = 7.5
+  PDF_FONT_SIZE = 10 # was 7.5
 
   def initialize(instances, instructables)
     @instances = instances
@@ -15,18 +15,18 @@ class CalendarRenderer
     @options = options
     @options = {} if options.nil?
     @options.reverse_merge!({
-      calendar_name: "GNE #{Pennsic.year} Master Schedule",
+      calendar_name: "GNE-U #{Pennsic.year} Master Schedule",
       calendar_id: 'all',
     })
 
-    now = Time.now.utc
+    now = Time.now - (5 * 60 * 60) # was Time.now.utc
 
     calendar = RiCal.Calendar do |cal|
       cal.default_tzid = 'America/New_York'
       cal.prodid = '//flame.org//PennsicU Converter.0//EN'
       cal.add_x_property('X-WR-CALNAME', @options[:calendar_name])
       cal.add_x_property('X-WR-RELCALID', make_uid) # should be static per calendar
-      cal.add_x_property('X-WR-CALDESC', "GNEU #{Pennsic.year} Master Schedule")
+      cal.add_x_property('X-WR-CALDESC', "GNE-U #{Pennsic.year} Master Schedule")
       cal.add_x_property('X-PUBLISHED-TTL', '3600')
 
       @instances.each { |instance|
@@ -83,12 +83,12 @@ class CalendarRenderer
 
     generate_magic_tokens unless @options[:no_long_descriptions].present?
 
-    margin_top = 0.125
+    margin_top = 0.5 # was 0.125
     margin_bottom = 0.5
     margin_left = 0.5
-    margin_right = 0.125
+    margin_right = 0.5 # was 0.125
 
-    pdf = Prawn::Document.new(page_size: [ 8.5, 10.5 ].map { |x| x * 72 },
+    pdf = Prawn::Document.new(page_size: [ 8.5, 11 ].map { |x| x * 72 }, # was [ 8.5, 10.5 ]
       margin: [margin_top, margin_right, margin_bottom, margin_left].map { |x| x * 72 },
       page_layout: :portrait,
       compress: true,
@@ -97,9 +97,9 @@ class CalendarRenderer
         Title: "GNE #{Pennsic.year} Master Schedule",
         Author: 'GNE',
         Subject: "GNE #{Pennsic.year} Master Schedule",
-        Keywords: 'gne northeastern university classes martial thrown weapons master schedule',
-        Creator: 'GNE Univeristy Class Maker, http://malagentia.eastkingdom.org/gnew/',
-        Producer: 'GNE Univeristy Class Maker',
+        Keywords: 'gne great northeastern university classes martial thrown weapons archery heavy list master schedule',
+        Creator: 'GNE University Thing, http://malagentia.eastkingdom.org/gnew/',
+        Producer: 'GNE Univeristy Thing',
         CreationDate: Time.now,
     })
 
@@ -112,7 +112,7 @@ class CalendarRenderer
         },
     )
 
-    pdf.font 'Arial'
+    pdf.font 'Times-Roman' # was arial
     omit_table_headers = options[:omit_table_headers]
 
     header = [
@@ -160,12 +160,12 @@ class CalendarRenderer
       end
 
       if !@options[:omit_descriptions] and instance.formatted_location =~ /A\&S /
-        times = []
-        times << "#{instance.formatted_location}"
-        times << "#{instance.start_time.strftime('%-I:%M %p')} - #{instance.end_time.strftime('%-I:%M %p')}"
-        times_content = times.join("\n")
+      #  times = []
+      #  times << "#{instance.formatted_location}"
+      #  times << "#{instance.start_time.strftime('%-I:%M %p')} - #{instance.end_time.strftime('%-I:%M %p')}"
+      #  times_content = times.join("\n")
 
-        location = nil
+      #  location = nil
       else
         times = []
         times << "#{instance.start_time.strftime('%-I:%M %p')} - #{instance.end_time.strftime('%-I:%M %p')}"
@@ -313,7 +313,7 @@ class CalendarRenderer
       )
       header = %w(id location start_time end_time instructor instructor_kingdom) + column_names
 
-      wb.add_worksheet(name: "Pennsic #{Pennsic.year}") do |sheet|
+      wb.add_worksheet(name: "GNE #{Pennsic.year}") do |sheet|
         sheet.add_row header
 
         @instances.each { |instance|
@@ -432,6 +432,6 @@ class CalendarRenderer
     items << @options[:calendar_id] or 'all'
     d = Digest::SHA1.new
     d << items.join('/')
-    d.hexdigest + '@gnew.flame.org'
+    d.hexdigest + '@gneuniversity.org'
   end
 end

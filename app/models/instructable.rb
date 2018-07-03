@@ -112,7 +112,7 @@ class Instructable < ApplicationRecord
 
   TRACKS = {
     'GNE University' => [
-      'A&S 1', 'A&S 2', 'A&S 3', 'A&S 4', 'A&S 5', 
+      'A&S 1', 'A&S 2', 'A&S 3', 'A&S 4', 'A&S 5', 'Herald\'s Point',
       'Battlefield', 'Info Point', 'Youth Point', 'Main Barn', 'Main Barn - Left', 'Main Barn - Right', 'Back Barn - A', 'Back Barn - B', 'Garden Spot', 'Bardic Grove', 'Smithing Works'
     ],
     'Dance' => [ 'Main Barn' ],
@@ -151,7 +151,7 @@ class Instructable < ApplicationRecord
       'Court',
       'Fencing',
       'Battlefield',
-      'Bardic',
+      'Bardic Arts and Music',
       'Archery',
       'Thrown Weapons',
       'Scribal Arts',
