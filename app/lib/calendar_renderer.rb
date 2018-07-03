@@ -4,7 +4,7 @@ class CalendarRenderer
   include GriffinPdf
   include GriffinMarkdown
 
-  PDF_FONT_SIZE = 10 # was 7.5
+  PDF_FONT_SIZE = 9 # was 7.5
 
   def initialize(instances, instructables)
     @instances = instances
@@ -19,7 +19,7 @@ class CalendarRenderer
       calendar_id: 'all',
     })
 
-    now = Time.now - (5 * 60 * 60) # was Time.now.utc
+    now = Time.now  # was Time.now.utc
 
     calendar = RiCal.Calendar do |cal|
       cal.default_tzid = 'America/New_York'
@@ -66,6 +66,7 @@ class CalendarRenderer
     end
 
     calendar.to_s.gsub('::', ':')
+    calendar.to_s.gsub('\'', '’')
   end
 
   def render_pdf(options, filename, cache_filename = nil, user = nil)
@@ -160,10 +161,11 @@ class CalendarRenderer
       end
 
       if !@options[:omit_descriptions] and instance.formatted_location =~ /A\&S /
-      #  times = []
+        times = []
       #  times << "#{instance.formatted_location}"
-      #  times << "#{instance.start_time.strftime('%-I:%M %p')} - #{instance.end_time.strftime('%-I:%M %p')}"
-      #  times_content = times.join("\n")
+        times << "#{instance.start_time.strftime('%-I:%M %p')} - #{instance.end_time.strftime('%-I:%M %p')}"
+        times_content = times.join("\n")
+        location = instance.formatted_location
 
       #  location = nil
       else
