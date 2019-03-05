@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 Encoding.default_external = Encoding::UTF_8
 Encoding.default_internal = Encoding::UTF_8
 
-ruby '2.4.3' # was 2.4.3 - scm 
+ruby '2.4.5' # was 2.4.3 - scm 
 
 gem 'rails', '5.1.4' # was 5.0.6 - scm
 

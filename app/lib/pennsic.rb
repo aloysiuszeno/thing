@@ -4,7 +4,7 @@ class Pennsic
   end
 
   def self.as
-    'LIII'
+    'LIV'
   end
 
   def self.calendar_year
@@ -12,7 +12,7 @@ class Pennsic
   end
 
   def self.dates
-    (Date.parse('2018-07-12')..Date.parse('2018-07-15')).to_a
+    (Date.parse('2019-07-11')..Date.parse('2019-07-14')).to_a
   end
 
   def self.dates_formatted
@@ -20,7 +20,7 @@ class Pennsic
   end
 
   def self.class_dates_raw
-    (Date.parse('2018-07-13')..Date.parse('2018-07-14')).to_a
+    (Date.parse('2019-07-12')..Date.parse('2018-07-13')).to_a
   end
 
   def self.class_dates
