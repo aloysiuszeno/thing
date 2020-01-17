@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 Encoding.default_external = Encoding::UTF_8
 Encoding.default_internal = Encoding::UTF_8
 
+# updated min versions per github security warnings
 ruby '2.4.5' # was 2.4.3 - scm 
 
 gem 'rails', '5.1.4' # was 5.0.6 - scm
@@ -24,7 +25,7 @@ gem 'therubyracer', platform: :ruby, require: 'v8'
 
 gem 'uglifier'
 
-gem 'bootstrap', '~> 4.0.0.beta.3'
+gem "bootstrap", ">= 4.3.1"
 
 source 'https://rails-assets.org' do
   gem 'rails-assets-tether', '>= 1.1.0'
@@ -70,7 +71,7 @@ group :development do
   gem 'rb-readline'
 end
 
-gem 'puma'
+gem 'puma', '>= 3.12.2'
 
 group :development do
   gem 'capistrano'
@@ -83,13 +84,13 @@ end
 
 gem 'rack-mini-profiler'
 gem 'haml-rails'
-gem 'simple_form'
+gem 'simple_form', '>= 5.0.0'
 gem 'will_paginate'
-gem 'devise'
+gem 'devise', ">= 4.7.1"
 gem 'dalli'
 gem 'redis'
 gem 'multa_arcana'
-gem 'rubyzip', '>= 1.2.1'
+gem 'rubyzip', ">= 1.3.0"
 gem 'zip-zip' #compatability for old rubyzip api
 gem 'prawn'
 gem 'prawn-table'
@@ -102,6 +103,16 @@ gem 'active_model_serializers'
 gem 'hashie'
 gem 'diff-lcs'
 gem 'liquid'
+
+# not previously in Gemfile - scm 2020-01-16
+gem "actionview", ">= 5.1.6.2"
+gem "ffi", ">= 1.9.24"
+gem "sprockets", ">= 3.7.2"
+gem "nokogiri", ">= 1.10.4"
+gem "activejob", ">= 5.1.6.1"
+gem "rack", ">= 2.0.8"
+gem "rails-html-sanitizer", ">= 1.0.4"
+gem "loofah", ">= 2.3.1"
 
 #
 # For HTML-format email that isn't so painful to format
