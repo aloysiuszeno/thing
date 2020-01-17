@@ -4,9 +4,9 @@ Encoding.default_external = Encoding::UTF_8
 Encoding.default_internal = Encoding::UTF_8
 
 # updated min versions per github security warnings
-ruby '2.4.5' # was 2.4.3 - scm 
+ruby '~>2.6.3' # was 2.4.5 was 2.4.3 - scm 
 
-gem 'rails', '5.1.4' # was 5.0.6 - scm
+gem 'rails', '~>5.1.4' # was 5.0.6 - scm
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
