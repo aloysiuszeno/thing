@@ -4,7 +4,7 @@ class Pennsic
   end
 
   def self.as
-    'LIV'
+    'LV'
   end
 
   def self.calendar_year
@@ -12,7 +12,7 @@ class Pennsic
   end
 
   def self.dates
-    (Date.parse('2019-07-11')..Date.parse('2019-07-14')).to_a
+    (Date.parse('2020-07-09')..Date.parse('2019-07-12')).to_a
   end
 
   def self.dates_formatted
@@ -20,7 +20,7 @@ class Pennsic
   end
 
   def self.class_dates_raw
-    (Date.parse('2019-07-12')..Date.parse('2018-07-13')).to_a
+    (Date.parse('2019-07-10')..Date.parse('2018-07-11')).to_a
   end
 
   def self.class_dates
@@ -28,6 +28,6 @@ class Pennsic
   end
 
   def self.class_times
-    [ '9am to Noon', 'Noon to 3pm', '3pm to 6pm' ]
+    [ 'Early Morning', 'Late Morning', 'Early Afternoon', 'Late Afternoon' ]
   end
 end
