@@ -84,7 +84,7 @@ class Instructable < ApplicationRecord
     'Health and Safety' => [],
     'Heraldry' => [],
     'History' => %W(Research),
-    'Language' => %W(Research),
+    'Language' => %W(Research Translation Documenting),
     'Leisure' => %W(Gaming Exercise),
     'Maritime' => [],
     'Martial' => [
@@ -100,23 +100,23 @@ class Instructable < ApplicationRecord
     'Meetings' => [],
     'Parent/Child' => [],
     'Party' => [],
-    'Performance' => %w(Bardic Commedia Music Rehersal Storytelling Theater),
     'Performing Arts and Music' => [ 'Bardic', 'Commedia', 'Instrumental Music', 'Juggling', 'Rehersal', 'Storytelling', 'Theater', 'Vocal Music' ],
-    'SCA Life' => %W(Court Heraldry Meetings Newcomers Persona),
+    'SCA Life' => %W(Court Heraldry Groups Camping Newcomers Persona),
     'Arts & Sciences' => [ 'Astronomy', 'Animals', 'Black Powder', 'Equestrian', 'Gardens', 'Research', 'Exhibition', 'Competition' ],
-    'Scribal Arts' => %w(Calligraphy Illumination),
-    'Youth Combat' => [],
-    'Youth' => [],
+    'Scribal Arts' => %w(Calligraphy Illumination Wordsmithing),
+    'Youth Combat' => ['Heavy List', 'Combat Archery'],
+    'Youth' => %W(Crafts Games Puzzles Classes),
     'Other' => [],
   }
 
   TRACKS = {
     'GNE University' => [
-      'A&S 1', 'A&S 2', 'A&S 3', 'A&S 4', 'A&S 5', 'Herald\'s Point',
-      'Battlefield', 'Info Point', 'Youth Point', 'Main Barn', 'Main Barn - Left', 'Main Barn - Right', 'Back Barn - A', 'Back Barn - B', 'Garden Spot', 'Bardic Grove', 'Smithing Works'
+      'A&S 1', 'A&S 2', 'A&S 3', 'A&S 4', 'A&S 5', 
+      'Battlefield', 'Info Point', 'Youth Point', 'Main Barn',
+      'Back Barn', 'Town Center', 'Garden Spot', 'Smithing Works'
     ],
     'Dance' => [ 'Main Barn' ],
-    'Bardic Arts and Music' => [ 'Bardic Grove', 'A&S 1', 'A&S 2', 'A&S 3', 'A&S 4', 'A&S 5' ],
+    'Bardic Arts and Music' => [ 'Town Center', 'A&S 1', 'A&S 2', 'A&S 3', 'A&S 4', 'A&S 5' ],
     'Thrown Weapons' => [
       'Thrown Weapons Range',
       'Thrown Weapons Tent',
@@ -125,25 +125,23 @@ class Instructable < ApplicationRecord
       'Archery Range',
       'Archery Tent',
     ],
-    'Youth' => [ 'Youth Point', 'Main Barn - Left', 'Main Barn - Right', 'Main Barn - Stage', 'Back Barn - A', 'Back Barn - B', 'Battlefield', 'Thrown Weapons Range', 'Archery Range', 'Fencing Field' ],
+    'Youth' => [ 'Youth Point', 'Main Barn', 'Back Barn', 'Battlefield', 'Thrown Weapons Range', 'Archery Range', 'Fencing Field', 'Town Center', 'A&S 1', 'A&S 2', 'A&S 3', 'A&S 4'. 'A&S 5' ],
     'Heavy List' => [
       'Battlefield',
-      'Fort',
       'Woods',
-      'Combat Archery Field',
       'Inspection Point',
-      "Marshal's Point",
+      'Marshal's Point',
     ],
     'Fencing' => [
       'Fencing Field',
       'Fencing Tent',
+      'Woods'
       'Main Barn',
+      'Marshal's Point',
     ],
     'Court' => ['Main Barn', 'Back Barn', 'Battlefield', 'Archery Field', 'Fencing Field', 'Roving'],
-    'Arts & Sciences' => ['Main Barn - Right', 'Main Barn - Left', 'Main Barn - Stage', 'Main Barn', 'Back Barn - A', 'Back Barn - B', 'Info Point' ],
+    'Arts & Sciences' => ['Main Barn', 'Back Barn', 'Info Point', 'Town Center', 'A&S 1', 'A&S 2', 'A&S 3', 'A&S 4', 'A&S 5' ],
     'Gardening, Herbs' => [ 'Garden Spot'],
-    'Scribal Arts' => ['Back Barn - A', 'Back Barn - B', 'Main Barn', 'Main Barn - Left', 'Main Barn - Right', 'Main Barn - Stage', 
-      'A&S 1', 'A&S 2', 'A&S 3', 'A&S 4', 'A&S 5'], 
   }
 
   SCHEDULES = [
@@ -157,7 +155,8 @@ class Instructable < ApplicationRecord
       'Scribal Arts',
       'Arts & Sciences',
       'Gardening',
-      'Youth'
+      'Youth',
+      'Town Center'
   ]
 
   def topic=(value)

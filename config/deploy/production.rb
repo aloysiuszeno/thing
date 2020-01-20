@@ -19,11 +19,11 @@
 # role :web, %w{user1@primary.com user2@additional.com}, other_property: :other_value
 # role :db,  %w{deploy@example.com}
 
-role :web, 'explorer@sca.flame.org'
-role :app, 'explorer@sca.flame.org'
-role :db,  'explorer@sca.flame.org', :primary => true
+role :web, 'chancellor@gneuniversity.org'
+role :app, 'chancellor@gneuniversity.org'
+role :db,  'chancellor@gneuniversity.org', :primary => true
 
-set :nginx_server_name, 'thing.pennsicuniversity.org'
+set :nginx_server_name, 'www.gneuniversity.org'
 
 set :sidekiq_monit_conf_dir, '/etc/monit/conf-available'
 set :sidekiq_user, 'explorer'

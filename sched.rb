@@ -42,34 +42,32 @@ if @schedule == "GNE University"
   @locs1 << 'Main Barn'
   @locs1 << 'Back of Barn'
   @locs1 << 'Youth Point'
-  @locs1 << 'Garden'
+  @locs1 << 'Garden Spot'
   @locs1 << 'Smithing Works'
-  @locs1 << 'Bardic Grove'
+  @locs1 << 'Info Point'
+  @locs1 << 'Town Center'
 
-
-  @locs2 = [
-    'Bardic Grove',
-  ].sort
+  @locs2 = [ ].sort
 elsif @schedule == "Battlefield"
   @locs1 = [
-    'Main Battlefield',
+    'Battlefield',
     'Woods',
-    'Fort',
     'Archery Field',
-    'Youth Combat List',
     'Thrown Weapons Range',
     'Thrown Weapons Tent',
     'Fencing Field',
     'Battlefield Tent',
+    'Youth Point'
   ].sort
 
   @locs2 = []
 elsif @schedule == "Court"
   @locs1 = [
     "Main Barn",
-    "Main Battlefield",
+    "Battlefield",
     "Archery Field",
     "Rapier Field",
+    "Town Center",
   ].sort
 
   @locs2 = []
@@ -691,7 +689,7 @@ pdf = Prawn::Document.new(page_size: [ 7.75 * 72, 10.25 * 72],
                           optimize_objects: true,
                           info: {
                             Title: "Great Northeastern War Schedule",
-                            Author: "gne.flame.org",
+                            Author: "chancellor@gneuniversity.org",
                             Subject: "GNE Schedule",
                             Keywords: "GNE Schedule",
                             Creator: "sched.rb",

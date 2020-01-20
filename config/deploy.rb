@@ -6,7 +6,7 @@ set :branch, 'master'
 set :deploy_via, :remote_cache
 
 set :rbenv_type, :user # or :system, depends on your rbenv setup
-set :rbenv_ruby, '2.4.3'
+set :rbenv_ruby, '2.6.3' # current ruby version on lightsail machine
 
 # ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }
 

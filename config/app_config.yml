@@ -11,5 +11,5 @@ test:
 
 production:
   <<: *defaults
-  domain: thing.pennsicuniversity.org
-  google_analytics_id: UA-38111558-1
+  domain: gneuniversity.org 
+  google_analytics_id: nil

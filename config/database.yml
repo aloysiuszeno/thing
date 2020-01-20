@@ -1,8 +1,7 @@
 development:
-  #  adapter: mysql2 # was postgresql -scm
   adapter: postgresql 
   encoding: utf8
-  database: thing_development
+  database: thing_production
   pool: 25
   username: thingrw
   password: <%= MultaArcana::secret_for(:db_dev_password) %>
@@ -20,7 +19,6 @@ development:
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test: &development
-#  adapter: mysql2 # was postgresql -scm
   adapter: postgresql 
   encoding: utf8
   database: thing_test
@@ -30,7 +28,6 @@ test: &development
   host: /var/run/postgresql
 
 production:
-#  adapter: mysql2 # was postgresql -scm
   adapter: postgresql 
   encoding: utf8
   database: thing_production
