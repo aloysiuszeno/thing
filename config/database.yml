@@ -4,8 +4,9 @@ development:
   database: thing_production
   pool: 25
   username: thingrw
-  password: <%= MultaArcana::secret_for(:db_dev_password) %>
-  host: /var/run/postgresql
+  password: <%= Rails.application.secrets.db_dev_password %>
+  host: 127.0.0.1
+#  host: /var/run/postgresql
   #port: 5432
   #schema_search_path: myapp,sharedapp,public
 
@@ -24,7 +25,8 @@ test: &development
   database: thing_test
   pool: 25
   username: thingrw
-  password: <%= MultaArcana::secret_for(:db_dev_password) %>
+  password: <%= Rails.application.secrets.db_dev_password %>
+# password: <%= MultaArcana::secret_for(:db_dev_password) %>
   host: /var/run/postgresql
 
 production:
@@ -33,5 +35,7 @@ production:
   database: thing_production
   pool: 25
   host: 127.0.0.1
-  username: <%= MultaArcana::secret_for(:db_username) %>
-  password: <%= MultaArcana::secret_for(:db_password) %>
+  username: <%= Rails.application.secrets.db_username %>
+#  username: <%= MultaArcana::secret_for(:db_username) %>
+  password: <%= Rails.application.secrets.db_password %>
+#  password: <%= MultaArcana::secret_for(:db_password) %>

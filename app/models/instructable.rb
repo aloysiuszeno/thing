@@ -125,19 +125,19 @@ class Instructable < ApplicationRecord
       'Archery Range',
       'Archery Tent',
     ],
-    'Youth' => [ 'Youth Point', 'Main Barn', 'Back Barn', 'Battlefield', 'Thrown Weapons Range', 'Archery Range', 'Fencing Field', 'Town Center', 'A&S 1', 'A&S 2', 'A&S 3', 'A&S 4'. 'A&S 5' ],
+    'Youth' => [ 'Youth Point', 'Main Barn', 'Back Barn', 'Battlefield', 'Thrown Weapons Range', 'Archery Range', 'Fencing Field', 'Town Center', 'A&S 1', 'A&S 2', 'A&S 3', 'A&S 4', 'A&S 5' ],
     'Heavy List' => [
       'Battlefield',
       'Woods',
       'Inspection Point',
-      'Marshal's Point',
+      'MOL Tent',
     ],
     'Fencing' => [
       'Fencing Field',
       'Fencing Tent',
-      'Woods'
+      'Woods',
       'Main Barn',
-      'Marshal's Point',
+      'MOL Tent',
     ],
     'Court' => ['Main Barn', 'Back Barn', 'Battlefield', 'Archery Field', 'Fencing Field', 'Roving'],
     'Arts & Sciences' => ['Main Barn', 'Back Barn', 'Info Point', 'Town Center', 'A&S 1', 'A&S 2', 'A&S 3', 'A&S 4', 'A&S 5' ],

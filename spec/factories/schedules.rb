@@ -15,7 +15,7 @@
 
 FactoryBot.define do
   factory :schedule do
-    instructables []
-    published false
+    instructables { [] }
+    published { false }
   end
 end

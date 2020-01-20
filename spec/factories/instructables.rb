@@ -48,12 +48,12 @@
 
 FactoryBot.define do
   factory :instructable do
-    name 'MyString'
-    description_book 'Book Description Goes Here.'
-    repeat_count 1
-    duration 1
-    topic Instructable::TOPICS.keys.first
-    location_type 'track'
+    name { 'MyString' }
+    description_book { 'Book Description Goes Here.'}
+    repeat_count { 1 }
+    duration { 1 }
+    topic { Instructable::TOPICS.keys.first }
+    location_type { 'track' }
     is_proofreader { |u| u.proofread? }
   end
 

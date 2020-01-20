@@ -1,3 +1,3 @@
 development: localhost:6379
 test: localhost:6379
-production: <% MultiArcana::secret_for(:redis) %>
+production: <% MultaArcana::secret_for(:redis) %>

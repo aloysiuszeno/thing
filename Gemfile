@@ -12,7 +12,6 @@ gem 'rails', '~>5.1.4' # was 5.0.6 - scm
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'pg', '~> 0.18'  # postgre db gem , but not v 1.0.0, which is not compatible -scm
-gem 'mysql2'
 gem 'sidekiq'
 
 gem 'sass-rails'
@@ -89,7 +88,7 @@ gem 'will_paginate'
 gem 'devise', ">= 4.7.1"
 gem 'dalli'
 gem 'redis'
-gem 'multa_arcana'
+gem 'multa_arcana', '>= 1.1.4'
 gem 'rubyzip', ">= 1.3.0"
 gem 'zip-zip' #compatability for old rubyzip api
 gem 'prawn'

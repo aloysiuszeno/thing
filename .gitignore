@@ -21,6 +21,10 @@ webrat.log
 
 # Ignore secrets
 config/secrets.yml
+config/secrets.yml.key
 doc/app
 brakeman.html
 TODO.html
+
+# Ignore encrypted secrets key file.
+config/secrets.yml.key

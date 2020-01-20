@@ -1,5 +1,5 @@
 FactoryBot.define do
   factory :policy do
-    university "MyString"
+    university { "MyString" }
   end
 end

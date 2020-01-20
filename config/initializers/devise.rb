@@ -1,7 +1,8 @@
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
 Devise.setup do |config|
-  config.secret_key = MultaArcana::secret_for(:devise_secret_key)
+#  config.secret_key = MultaArcana::secret_for(:devise_secret_key)
+  config.secret_key = Rails.application.secrets.devise_secret_key
 
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
@@ -84,7 +85,8 @@ Devise.setup do |config|
   config.stretches = Rails.env.test? ? 1 : 10
 
   # Setup a pepper to generate the encrypted password.
-  config.pepper = MultaArcana::secret_for(:devise_pepper)
+#  config.pepper = MultaArcana::secret_for(:devise_pepper)
+  config.pepper = Rails.application.secrets.devise_pepper
 
   # ==> Configuration for :confirmable
   # A period that the user is allowed to access the website even without
