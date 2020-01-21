@@ -18,7 +18,8 @@ gem 'sass-rails'
 gem 'coffee-rails'
 
 #gem 'less-rails'
-gem 'therubyracer', platform: :ruby, require: 'v8'
+#gem 'therubyracer', platform: :ruby, require: 'v8'
+gem 'mini_racer'
 
 #gem 'less-js'
 
@@ -106,7 +107,8 @@ gem 'liquid'
 # not previously in Gemfile - scm 2020-01-16
 gem "actionview", ">= 5.1.6.2"
 gem "ffi", ">= 1.9.24"
-gem "sprockets", ">= 3.7.2"
+#gem "sprockets", ">= 3.7.2"
+gem "sprockets", "~> 4.0.0"
 gem "nokogiri", ">= 1.10.4"
 gem "activejob", ">= 5.1.6.1"
 gem "rack", ">= 2.0.8"

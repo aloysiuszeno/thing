@@ -137,7 +137,15 @@ table#schedule {
 
 @font-face {
   font-family: 'Chalkduster';
-  src: local('Chalkduster'), asset-url('Chalkduster.ttf') format('truetype');
+  src:font-url('Chalkduster.ttf') format('truetype');
+/*
+ src: local('Chalkduster'), asset-url('Chalkduster.ttf') format('truetype');
+*/
+}
+
+@font-face {
+  font-family: 'EagleLakeRegular';
+  src:font-url('EagleLake-Regular.ttf') format('truetype');
 }
 
 section {
@@ -155,6 +163,15 @@ section {
   font-size: 54px;
 }
 
+#overview{background-image: url('gne2009-fighters1-scm.jpg');font-size:1.3em}
+
+.nav-link {
+  color: rgba(0, 0, 0, 0.7) !important;
+  background: #12a9ff69;
+  margin: 0 3px;
+  @include rounded(4px);
+  @include box-shadow(3px,3px,3px,#00000038);
+}
 /* Subnav */
 .subnav {
   width: 100%;
@@ -272,11 +289,14 @@ table.table {
 //
 .hero-unit h1 {
   margin-bottom: 15px;
+  font-size: 2em;
 }
 
-.hero-unit.opening-page h1 {
-  font-family: Chalkduster, 'Noto Sans', sans-serif;
-  font-size: 60px;
+.opening-page {
+  font-family: EagleLakeRegular, 'Noto Sans', sans-serif;
+  color: yellow;
+  text-shadow: 2px 2px 3px #000,-1px -1px 2px #000;
+  font-weight:700;
 }
 
 //

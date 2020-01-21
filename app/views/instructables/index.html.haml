@@ -37,7 +37,7 @@
       %tbody
         - @previous_year_classes.each do |aclass|
           %tr
-            %td= link_to 'Request for This Year', new_user_instructable_path(@target_user, clone_from: aclass.id), :class => 'btn'
+            %td= link_to 'Request for This Year', new_user_instructable_path(@target_user, clone_from: aclass.id), :class => 'btn btn-primary'
             %td= aclass.year
             %td= markdown_html(aclass.name)
 

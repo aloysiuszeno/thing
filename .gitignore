@@ -21,7 +21,9 @@ webrat.log
 
 # Ignore secrets
 config/secrets.yml
-config/secrets.yml.key
+config/secrets-travis.yml
+config/*.orig
+
 doc/app
 brakeman.html
 TODO.html

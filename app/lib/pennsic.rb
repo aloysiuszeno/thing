@@ -12,7 +12,11 @@ class Pennsic
   end
 
   def self.dates
-    (Date.parse('2020-07-09')..Date.parse('2019-07-12')).to_a
+    (Date.new(2020,7,9)..Date.new(2020,7,12)).to_a
+  end
+
+  def self.dates_display
+    [self.dates.first.strftime("%A, %B %e, %Y"), self.dates.last.strftime("%A, %B %e, %Y")]
   end
 
   def self.dates_formatted
@@ -20,7 +24,7 @@ class Pennsic
   end
 
   def self.class_dates_raw
-    (Date.parse('2019-07-10')..Date.parse('2018-07-11')).to_a
+    (Date.new(2020,7,9)..Date.new(2020,7,11)).to_a
   end
 
   def self.class_dates
@@ -28,6 +32,6 @@ class Pennsic
   end
 
   def self.class_times
-    [ 'Early Morning', 'Late Morning', 'Early Afternoon', 'Late Afternoon' ]
+    [ 'Early Morning', 'Late Morning', 'Early Afternoon', 'Late Afternoon' , 'Evening']
   end
 end
