@@ -1,0 +1,157 @@
+misc - unknown location
+update class limit, allow more than 4
+
+
+Views/about
+need to set Pennsic.year, Pennsic.dates - referenced in views/index.html.haml
+numerous pennsic to gne customizations, added authorship blurb
+
+Views/admin
+may want to modify Kingdom war points report menu heading in _menu file
+
+user/edit.htnl
+	what is PU_staff? A pennsic staff member or an instructor, or management for PU, but not say, marshal activies?
+
+Views/calendars
+modified name in index
+
+Views/changelog
+no changes
+
+Views/coordinator
+no changes
+
+Views/devise
+	mailer - references to GNE added in, might need more contact info once that's identified.
+
+no further changes needed
+
+Views/howto
+in ios instructions url for download has fqdn, removed and made relative
+(2 occurences) - might not be correct!
+
+Views/instructables
+edit.haml.html - character limits on form here
+	typo on youthppoint pensic address - NEED e-mailaddress for this
+ 	language here needs review
+	removed some class special needs
+index.html.haml
+	find target_user.class_limit to alter limit
+	a little bit of customization
+
+Views/instructables_mailer
+	on_create - minor customization
+	track_status - added Great Northeastern War University to text
+
+Views/instructor_mailer
+send_message.html.haml
+	usual customizations, 
+	need address for website reference
+	info point substituted for University Point
+	need to review language, much removed that's pennsic specific,
+	need to write up any instructions for teachers, any link to online policy
+	nned to add deputies? customized for GNE XXXII
+
+Views/instructor_profiles
+	usual customizations
+
+Views/Layouts
+	application.html.haml 
+	usual customizations, footer info here.  Need more customization, links to
+	FAQS and university information incomplete.
+	Need to change google analytics somewhere.
+	need to change contact info, currently webminister@ravensbridge
+
+	_navigation.html.haml
+	no changes, but here's where the menu is
+
+Views/policies
+	university.html.haml
+	Many adjustments to text here.
+	Are youth policy/ages (12) correct here?
+	need to verify all policy
+	are all youth only classes overseen through youth point admin?
+	need to update thing url in policy and make a link!
+
+Views/proofreader
+instructables
+	edit.html.haml
+	minor text adjustments
+	in datepicker (after override) section:
+	tweak start times from 12AM to 8:00 for start date	- FIXED need to adjust so actual class start date has valid times
+	tweak end time from 6:00pm to 18:00 (and then to 2400) datepicker wants 24hr time, not am/pm
+
+Views/users
+schedules
+	show.html.haml
+	  bug fix?  naked & -> &amp;
+
+BUGS
+	proofread button doesn't change proofread flag - But I wasn't a proofreader. Even so, doesn't seem to work.
+	menu can't be seen on short screens. no menu access for user modification at admin level -
+	-- menu text size smaller, and per-day schedules split into own menu.
+
+mailers/instructor_mailer.rb
+	some customization here - scm personal email address, need to pick better address.
+	GNE University reference
+
+mailers/instructable_mailer.rb
+	scm return email address here too. need better address
+
+models
+	users.rb
+		moved east to beginning of kingdom list
+		changed default class limit to 10
+	instructables.rb 
+		numerous changes to tracks topics and other lists. Also changed default track
+
+app/lib/pennsic.rb
+	year changed to current year - 1984
+	as set to as LIII
+
+	ranges for event dates and class dates narrowed
+
+app/lib/calendar_renderer.rb
+	pennsic to GNE...
+	lots of changes, also e-mail address and urls may need further changes
+
+app/lib/csv_compare.rb
+	filename change - pennsic-book to gneuniv-book.csv
+
+app/controllers
+	admin/reports_controller.rb
+	pennsic to GNE
+	also e-mail address and urls may need further changes
+
+	calendars_controller.rb
+	changed pennsic filename
+
+	coodinator/locations_controller.rb
+	all_days defintion has track GNE University was Artisan's Row
+	Pennsic U to GNE University
+
+	users/schedules_controller.rb
+	filename changes pennsic to gneuniv
+
+app/helpers
+	instructor_profile_helper.rb
+		changed subject of e-mail
+
+bin/calendar_renderer.rb
+	filename changes
+
+bin/instructor-schedule-mailer.rb
+	changed Pennsic University to GNE University (schedule: )
+
+config/environments/development.rb 
+	changed false to true on report email errors
+
+config/initializers/actionmailer.rb
+	set mailer to mail.gandi.net hopefully with tls
+
+sched.rb
+	Modifications for schedule reports to match instructable model
+	many customizations for specific cases here.
+
+
+	
