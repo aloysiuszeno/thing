@@ -163,7 +163,7 @@ section {
   font-size: 54px;
 }
 
-#overview{background-image: url('gne2009-fighters1-scm.jpg');font-size:1.3em}
+#overview{font-size:1.3em;background-image: url(<%= image_path 'gne2009-fighters1-scm.jpg' %>);
 
 .nav-link {
   color: rgba(0, 0, 0, 0.7) !important;

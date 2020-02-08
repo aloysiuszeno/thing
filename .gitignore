@@ -21,12 +21,14 @@ webrat.log
 
 # Ignore secrets
 config/secrets.yml
+config/secrets.yml.sample
 config/secrets-travis.yml
 config/*.orig
 
 doc/app
 brakeman.html
 TODO.html
+public/assets
 
 # Ignore encrypted secrets key file.
 config/secrets.yml.key
