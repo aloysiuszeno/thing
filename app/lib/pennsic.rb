@@ -3,16 +3,18 @@ class Pennsic
     Time.now.year - 1986 #GNE YEAR
   end
 
+  # Year AS, during event
   def self.as
-    'LV'
+    'LVII'
   end
 
   def self.calendar_year
     Time.now.year
   end
 
+  # These are the dates for Great Northeastern War GNE
   def self.dates
-    (Date.new(2020,7,9)..Date.new(2020,7,12)).to_a
+    (Date.new(2022,7,14)..Date.new(2022,7,17)).to_a
   end
 
   def self.dates_display
@@ -23,8 +25,9 @@ class Pennsic
     dates.map(&:to_s)
   end
 
+  # these are the dates we allow classes - nothing sunday, basically
   def self.class_dates_raw
-    (Date.new(2020,7,9)..Date.new(2020,7,11)).to_a
+    (Date.new(2022,7,14)..Date.new(2022,7,16)).to_a
   end
 
   def self.class_dates

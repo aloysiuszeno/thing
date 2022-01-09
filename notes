@@ -1,3 +1,22 @@
+---- 2022 Notes ----
+
+thing@thing2:~/thing$ git pull
+Updating 4279b9d..a52f3f4
+Fast-forward
+ Gemfile                                                 |   2 +-
+ Gemfile.lock                                            |  70 +++++------
+ app/assets/stylesheets/bootstrap_and_overrides.scss.erb | 576 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ config/initializers/secret_token.rb                     |   4 +-
+ config/nginx.conf                                       | 121 ++++++++++++++-----
+ config/nginx.sites-available.thing                      | 113 ++++++++++++++++++
+ config/resque.yml                                       |   3 +-
+ 7 files changed, 821 insertions(+), 68 deletions(-)
+ create mode 100644 app/assets/stylesheets/bootstrap_and_overrides.scss.erb
+ create mode 100644 config/nginx.sites-available.thing
+
+
+
+-----INITIAL NOTES ----
 misc - unknown location
 update class limit, allow more than 4
 
