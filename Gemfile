@@ -12,7 +12,7 @@ gem 'rails', '~>5.1.4' # was 5.0.6 - scm
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'pg', '~> 0.18'  # postgre db gem , but not v 1.0.0, which is not compatible -scm
-gem 'sidekiq'
+gem 'sidekiq', '~> 6.2.1'  #was using 6.0.5 which up until 6.2.0 has vulnerability - but looks like >=6.3 may have breaking changes
 
 gem 'sass-rails'
 gem 'coffee-rails'
