@@ -689,9 +689,9 @@ pdf = Prawn::Document.new(page_size: [ 7.75 * 72, 10.25 * 72],
                           optimize_objects: true,
                           info: {
                             Title: "Great Northeastern War Schedule",
-                            Author: "chancellor@gneuniversity.org",
-                            Subject: "GNE Schedule",
-                            Keywords: "GNE Schedule",
+                            Author: "gnew_uni@malagentia.eastkingdom.org",
+                            Subject: "GNEW Schedule",
+                            Keywords: "GNEW Schedule",
                             Creator: "sched.rb",
                             CreationDate: Time.now
                           })
