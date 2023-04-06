@@ -106,14 +106,14 @@ class CalendarRenderer
 
     pdf.font_families.update(
         'Arial' => {
-          normal: Rails.root.join('app', 'assets', 'fonts', 'Arial.ttf'),
-          bold: Rails.root.join('app', 'assets', 'fonts', 'Arial Bold.ttf'),
-          italic: Rails.root.join('app', 'assets', 'fonts', 'Arial Italic.ttf'),
-          bold_italic: Rails.root.join('app', 'assets', 'fonts', 'Arial Bold Italic.ttf'),
+          normal: Rails.root.join('app', 'assets', 'fonts', 'Arial Narrow.ttf'),
+          bold: Rails.root.join('app', 'assets', 'fonts', 'Arial Narrow Bold.ttf'),
+          italic: Rails.root.join('app', 'assets', 'fonts', 'Arial Narrow Italic.ttf'),
+          bold_italic: Rails.root.join('app', 'assets', 'fonts', 'Arial Narrow Bold Italic.ttf'),
         },
     )
 
-    pdf.font 'Times-Roman' # was arial
+    pdf.font 'Arial' # was arial - cannot be pdf default Times-Roman, as this won't work with non-windows chars
     omit_table_headers = options[:omit_table_headers]
 
     header = [
