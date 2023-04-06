@@ -113,7 +113,7 @@ class CalendarRenderer
         },
     )
 
-    pdf.font 'Arial' # was arial - must load font with UTF-8, default Times Roman does not work
+    pdf.font 'Arial' # was arial - cannot be pdf default Times-Roman, as this won't work with non-windows chars Need UTF-8
     omit_table_headers = options[:omit_table_headers]
 
     header = [
