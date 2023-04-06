@@ -41,7 +41,7 @@ class CsvCompare
     @created_instances_for_date = []
     @changed_instances_for_date = []
 
-    book = parse_file('gneuniv-book.csv')
+    book = parse_file(File.join(Rails.root, 'gneuniv-book.csv'))
     now = parse_file(filename)
 
     compare_all_entries(book, now)
