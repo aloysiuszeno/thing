@@ -1,6 +1,6 @@
 class Pennsic
   def self.year
-    Time.now.year - 1986 #GNE YEAR
+    Time.now.year - 1988 #GNE YEAR
   end
 
   # Year AS, during event
