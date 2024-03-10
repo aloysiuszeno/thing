@@ -19,7 +19,7 @@ gem 'coffee-rails'
 
 #gem 'less-rails'
 #gem 'therubyracer', platform: :ruby, require: 'v8'
-gem 'mini_racer'
+gem 'mini_racer', '0.2.9'
 
 #gem 'less-js'
 
@@ -90,12 +90,12 @@ gem 'devise', ">= 4.7.1"
 gem 'dalli'
 gem 'redis'
 gem 'multa_arcana', '>= 1.1.4'
-gem 'rubyzip', ">= 1.3.0"
+gem 'rubyzip', ">= 2.3.2" #was 1.3.0
 gem 'zip-zip' #compatability for old rubyzip api
 gem 'prawn'
 gem 'prawn-table'
 gem 'ri_cal'
-gem 'axlsx'
+gem 'caxlsx', '~> 3.4.1'
 gem 'redcarpet'
 gem 'htmlentities'
 gem 'paper_trail'
