@@ -27,7 +27,7 @@ class Pennsic
 
   # these are the dates we allow classes - nothing sunday, basically
   def self.class_dates_raw
-    (Date.new(2023,7,15)..Date.new(2023,7,15)).to_a
+    (Date.new(2023,7,13)..Date.new(2023,7,15)).to_a
   end
 
   def self.class_dates

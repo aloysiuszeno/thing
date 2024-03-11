@@ -15,7 +15,8 @@ class CalendarsController < ApplicationController
     date = params[:id]
 
     respond_to do |format|
-      uncached = params[:uncached_for_tests].present?
+      ###uncached = params[:uncached_for_tests].present?
+      uncached = true
 
       format.html {
         load_data_for_date(date)
