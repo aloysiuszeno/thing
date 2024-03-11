@@ -19,7 +19,7 @@ gem 'coffee-rails'
 
 #gem 'less-rails'
 #gem 'therubyracer', platform: :ruby, require: 'v8'
-gem 'mini_racer', '0.2.9'
+gem 'mini_racer', '0.2.15'
 
 #gem 'less-js'
 
@@ -47,7 +47,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'rspec-collection_matchers'
   gem 'thin'
-  gem 'factory_bot_rails'
+  gem 'factory_bot_rails', '6.1.0'
   gem 'capybara'
   gem 'poltergeist'
   gem 'database_cleaner'
@@ -71,7 +71,7 @@ group :development do
   gem 'rb-readline'
 end
 
-gem 'puma', '>= 3.12.2'
+gem 'puma', '>= 6.4.2'
 
 group :development do
   gem 'capistrano'
