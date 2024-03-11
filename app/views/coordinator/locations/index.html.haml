@@ -13,7 +13,7 @@
     - else
       = hidden_field_tag(:track, current_user.allowed_tracks.first)
     = select_tag :date, options_for_select([''] + Instructable::CLASS_DATES, @date), class: 'input-medium'
-    = submit_tag 'Go', :class => 'btn'
+    = submit_tag 'Go', :class => 'btn btn-primary'
 
   %h3 Free/Allocated
 
@@ -28,7 +28,7 @@
       = select_tag :track, options_for_select([''] + current_user.allowed_tracks - ['No Track'], @track), class: 'input-medium'
     - else
       = hidden_field_tag(:track, current_user.allowed_tracks.first)
-    = submit_tag 'Go', :class => 'btn'
+    = submit_tag 'Go', :class => 'btn btn-primary'
 
 - if  Rails.env == 'test'
   %a{onclick: 'test_locations_controller_hack_hack_hack()', href: '#'}HACKIT

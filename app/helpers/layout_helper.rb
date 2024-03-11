@@ -15,7 +15,7 @@ module LayoutHelper
       else
       end
       ret << '<div class="' + css_class + '">'
-      ret << '<a class="close" data-dismiss="alert">×</a>'
+      ret << '<a class="close" data-dismiss="alert">X</a>'
       ret << h(msg)
       ret << '</div>'
     end

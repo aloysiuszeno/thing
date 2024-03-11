@@ -9,6 +9,15 @@ class CalendarsController < ApplicationController
     end
   end
 
+  def file_age(name)
+    # returns file age in hours
+    (Time.now - File.mtime(name))/(3600)
+  end
+
+  def max_age  # hours of age of file
+    2
+  end
+
   def show
     render_options = {}
 
@@ -30,11 +39,7 @@ class CalendarsController < ApplicationController
         ].compact.join('-') + '.pdf'
         cache_filename = Rails.root.join('tmp', filename)
 
-        begin
-          File.unlink(cache_filename)
-        rescue
-          # ignored
-        end
+	Dir.glob(cache_filename).each { |filename| File.delete(filename) if file_age(filename) > max_age }
 
         if uncached or !File.exists?(cache_filename)
           render_options[:no_long_descriptions] = true
@@ -73,6 +78,8 @@ class CalendarsController < ApplicationController
         ].compact.join('-') + '.ics'
         cache_filename = Rails.root.join('tmp', filename)
 
+	Dir.glob(cache_filename).each { |filename| File.delete(filename) if file_age(filename) > max_age }
+
         if uncached or !File.exists?(cache_filename)
           render_options[:calendar_name] = "PennsicU #{Pennsic.year}"
           load_data(schedule)
@@ -98,6 +105,8 @@ class CalendarsController < ApplicationController
         ].compact.join('-') + '.pdf'
         cache_filename = Rails.root.join('tmp', filename)
 
+	Dir.glob(cache_filename).each { |filename| File.delete(filename) if file_age(filename) > max_age }
+
         if uncached or !File.exists?(cache_filename)
           render_options[:omit_descriptions] = omit_descriptions
           render_options[:no_page_numbers] = no_page_numbers
@@ -122,6 +131,8 @@ class CalendarsController < ApplicationController
         ].compact.join('-') + '.csv'
         cache_filename = Rails.root.join('tmp', filename)
 
+	Dir.glob(cache_filename).each { |filename| File.delete(filename) if file_age(filename) > max_age }
+
         if uncached or !File.exists?(cache_filename)
           load_data(schedule)
           renderer = CalendarRenderer.new(@instances, @instructables)
@@ -140,6 +151,8 @@ class CalendarsController < ApplicationController
           schedule_filename_part,
         ].compact.join('-') + '.xlsx'
         cache_filename = Rails.root.join('tmp', filename)
+
+	Dir.glob(cache_filename).each { |filename| File.delete(filename) if file_age(filename) > max_age }
 
         if uncached or !File.exists?(cache_filename)
           load_data(schedule)
