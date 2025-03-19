@@ -82,7 +82,9 @@ Views/Layouts
 	need to change contact info, currently webminister@ravensbridge
 
 	_navigation.html.haml
-	no changes, but here's where the menu is
+	menu - removed followng line from Schedules menu:
+          = link_to 'All: Excel (spreadsheet)', calendars_path(format: :xlsx), class: "dropdown-item"
+
 
 Views/policies
 	university.html.haml
@@ -104,6 +106,10 @@ Views/users
 schedules
 	show.html.haml
 	  bug fix?  naked & -> &amp;
+        removed followng 3 lines (excel spreadsheet not working)
+     %dl.dl-horizontal
+        %dt= link_to('Excel', user_schedule_path(@user, format: :xlsx), class: 'btn', target: '_blank')
+        %dd A popular spreadsheet format.
 
 BUGS
 	proofread button doesn't change proofread flag - But I wasn't a proofreader. Even so, doesn't seem to work.
