@@ -8,9 +8,9 @@ else
 end
 
 ActionMailer::Base.smtp_settings = {
-    :address              => "mail.gandi.net",
+    :address              => "smtp.gmail.com",
     :port                 => 587,
-    :user_name            => "chancellor@gneuniversity.org",
+    :user_name            => "stacy.morang@gmail.com",
     :password             => Rails.application.secrets.smtp_password,
 #    :password             => MultaArcana::secret_for(:smtp_password),
     :authentication       => :plain,

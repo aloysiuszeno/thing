@@ -106,7 +106,7 @@ gem 'liquid'
 
 # not previously in Gemfile - scm 2020-01-16
 gem "actionview", ">= 5.1.6.2"
-gem "ffi", ">= 1.9.24"
+gem "ffi", "= 1.15.5"
 #gem "sprockets", ">= 3.7.2"
 gem "sprockets", "~> 4.0.0"
 gem "nokogiri", ">= 1.10.8"
