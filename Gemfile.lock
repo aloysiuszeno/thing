@@ -430,8 +430,8 @@ DEPENDENCIES
   database_cleaner
   devise (>= 4.7.1)
   diff-lcs
-  factory_bot_rails (= 6.1.0)
-  ffi (>= 1.9.24)
+  factory_bot_rails
+  ffi (= 1.15.5)
   guard
   guard-rspec
   haml-rails

@@ -41,7 +41,7 @@ if @schedule == "GNE University"
   @locs1 << 'Battlefield'
   @locs1 << 'Main Barn'
   @locs1 << 'Back of Barn'
-  @locs1 << 'Youth Point'
+  @locs1 << 'Family Point'
   @locs1 << 'Garden Spot'
   @locs1 << 'Smithing Works'
   @locs1 << 'Info Point'

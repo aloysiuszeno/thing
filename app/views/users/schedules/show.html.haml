@@ -27,9 +27,6 @@
       %dl.dl-horizontal
         %dt= link_to('PDF (brief)', user_schedule_path(@user, format: :pdf, brief: true), class: 'btn', target: '_blank')
         %dd PDF file with just the class names, times, and locations.
-      %dl.dl-horizontal
-        %dt= link_to('Excel', user_schedule_path(@user, format: :xlsx), class: 'btn', target: '_blank')
-        %dd A popular spreadsheet format.
     .col
       %dl.dl-horizontal
         %dt= link_to('iCalendar', user_schedule_path(@user, format: :ics), class: 'btn', target: '_blank')

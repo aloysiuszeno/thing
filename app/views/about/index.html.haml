@@ -31,8 +31,8 @@
           and update your instructor profile.  These are also available under
           the Instructor menu option near the top of the page.
         %p
-          %a.btn{:href => user_instructables_path(current_user) } Your classes
-          %a.btn{:href => edit_user_instructor_profile_path(current_user) } Update instructor profile
+          %a.btn.btn-primary{:href => user_instructables_path(current_user) } Your classes
+          %a.btn.btn-primary{:href => edit_user_instructor_profile_path(current_user) } Update instructor profile
       - else
         %p
           Students come to GNE University classes to learn about a
@@ -42,7 +42,7 @@
             If you wish to share your knowledge and teach at GNE, you
             must first create a profile.
           %p
-            %a.btn{:href => new_user_instructor_profile_path(current_user) } Become an instructor
+            %a.btn.btn-primary{:href => new_user_instructor_profile_path(current_user) } Become an instructor
         - else
           %p
             Sign in or sign up to request to teach a class at GNE,

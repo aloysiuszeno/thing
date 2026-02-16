@@ -112,8 +112,8 @@ class Instructable < ApplicationRecord
   TRACKS = {
     'GNE University' => [
       'A&S 1', 'A&S 2', 'A&S 3', 'A&S 4', 'A&S 5', 
-      'Battlefield', 'Info Point', 'Youth Point', 'Main Barn',
-      'Back Barn', 'Town Center', 'Garden Spot', 'Smithing Works'
+      'Battlefield', 'Info Point', 'Family Point', 'Main Barn',
+      'Back Barn', 'Town Center', 'Garden Spot', 'Smithing Works', 'Fencing Field', 'MOL Tent', 'Archery Field', 'Thrown Weapons Field'
     ],
     'Dance' => [ 'Main Barn' ],
     'Bardic Arts and Music' => [ 'Town Center', 'A&S 1', 'A&S 2', 'A&S 3', 'A&S 4', 'A&S 5' ],
@@ -125,7 +125,10 @@ class Instructable < ApplicationRecord
       'Archery Range',
       'Archery Tent',
     ],
-    'Youth' => [ 'Youth Point', 'Main Barn', 'Back Barn', 'Battlefield', 'Thrown Weapons Range', 'Archery Range', 'Fencing Field', 'Town Center', 'A&S 1', 'A&S 2', 'A&S 3', 'A&S 4', 'A&S 5' ],
+    'Youth' => [ 'Family Point', 'Main Barn', 'Back Barn', 'Battlefield',
+                 'Thrown Weapons Range', 'Archery Range', 'Fencing Field',
+                 'Town Center', 'A&S 1', 'A&S 2', 'A&S 3', 'A&S 4', 'A&S 5'
+    ],
     'Heavy List' => [
       'Battlefield',
       'Woods',
@@ -140,7 +143,7 @@ class Instructable < ApplicationRecord
       'MOL Tent',
     ],
     'Court' => ['Main Barn', 'Back Barn', 'Battlefield', 'Archery Field', 'Fencing Field', 'Roving'],
-    'Arts & Sciences' => ['Main Barn', 'Back Barn', 'Info Point', 'Town Center', 'A&S 1', 'A&S 2', 'A&S 3', 'A&S 4', 'A&S 5' ],
+    'Arts & Sciences' => ['Main Barn', 'Back Barn', 'Info Point', 'Town Center', 'A&S 1', 'A&S 2', 'A&S 3', 'A&S 4', 'A&S 5', 'Fencing Field', 'Battlefield', 'Thrown Weapons Field', 'Archery Field' ],
     'Gardening, Herbs' => [ 'Garden Spot'],
   }
 
@@ -155,6 +158,7 @@ class Instructable < ApplicationRecord
       'Scribal Arts',
       'Arts & Sciences',
       'Gardening',
+      'Family Point',
       'Youth',
       'Town Center'
   ]
