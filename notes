@@ -1,3 +1,24 @@
+---- 2026 notes ----
+
+Updating: 
+	app/views/about/about.html.haml
+		remove legal name for Aloysius, change title
+	app/views/instructables/edit.html.haml
+		changed youth point to family point
+	app/views/instructor_mailer/send_message.html.haml
+		removed Aloysius as Chancellor, updated GNE number, need to make this configured
+	app/lib/pennsic.rb
+		(This is where the dates are set, Pennsic class)
+		updated self.as to LXI, self.dates to 2026, 07, 09 to 2026 07 12, self.class_dates_raw 7-09 to 7-11
+	config/initializers/actionmailer.rb
+		mail moved to gmail last year, set username(smtp addr) to come from secrets like passwd and check in to git
+	 
+
+	
+	
+
+
+ 
 ---- 2022 Notes ----
 
 thing@thing2:~/thing$ git pull
@@ -42,7 +63,7 @@ no changes
 
 Views/devise
 	mailer - references to GNE added in, might need more contact info once that's identified.
-
+l
 no further changes needed
 
 Views/howto
@@ -118,10 +139,12 @@ BUGS
 
 mailers/instructor_mailer.rb
 	some customization here - scm personal email address, need to pick better address.
+	- modded to malagentia address
 	GNE University reference
 
 mailers/instructable_mailer.rb
 	scm return email address here too. need better address
+	- modded to malagentia address
 
 models
 	users.rb

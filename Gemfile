@@ -19,7 +19,7 @@ gem 'coffee-rails'
 
 #gem 'less-rails'
 #gem 'therubyracer', platform: :ruby, require: 'v8'
-gem 'mini_racer'
+gem 'mini_racer', '0.2.15'
 
 #gem 'less-js'
 
@@ -47,7 +47,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'rspec-collection_matchers'
   gem 'thin'
-  gem 'factory_bot_rails'
+  gem 'factory_bot_rails', '6.1.0'
   gem 'capybara'
   gem 'poltergeist'
   gem 'database_cleaner'
@@ -71,7 +71,7 @@ group :development do
   gem 'rb-readline'
 end
 
-gem 'puma', '>= 3.12.2'
+gem 'puma', '>= 6.4.2'
 
 group :development do
   gem 'capistrano'
@@ -90,12 +90,12 @@ gem 'devise', ">= 4.7.1"
 gem 'dalli'
 gem 'redis'
 gem 'multa_arcana', '>= 1.1.4'
-gem 'rubyzip', ">= 1.3.0"
+gem 'rubyzip', ">= 2.3.2" #was 1.3.0
 gem 'zip-zip' #compatability for old rubyzip api
 gem 'prawn'
 gem 'prawn-table'
 gem 'ri_cal'
-gem 'axlsx'
+gem 'caxlsx', '~> 3.4.1'
 gem 'redcarpet'
 gem 'htmlentities'
 gem 'paper_trail'

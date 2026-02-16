@@ -81,7 +81,7 @@ class CalendarsController < ApplicationController
 	Dir.glob(cache_filename).each { |filename| File.delete(filename) if file_age(filename) > max_age }
 
         if uncached or !File.exists?(cache_filename)
-          render_options[:calendar_name] = "PennsicU #{Pennsic.year}"
+          render_options[:calendar_name] = "GNEW Univ #{Pennsic.year}"
           load_data(schedule)
           renderer = CalendarRenderer.new(@instances, @instructables)
           data = renderer.render_ics(render_options, filename, cache_filename)

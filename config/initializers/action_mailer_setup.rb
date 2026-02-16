@@ -10,7 +10,7 @@ end
 ActionMailer::Base.smtp_settings = {
     :address              => "smtp.gmail.com",
     :port                 => 587,
-    :user_name            => "stacy.morang@gmail.com",
+    :user_name            => Rails.application.secrets.smtp_username,
     :password             => Rails.application.secrets.smtp_password,
 #    :password             => MultaArcana::secret_for(:smtp_password),
     :authentication       => :plain,

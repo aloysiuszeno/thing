@@ -19,7 +19,9 @@ PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
 TIMEOUT=${TIMEOUT-60}
 APP_ROOT=/home/thing/thing
 PID=/var/run/thing/thing-puma.pid
-CMD="cd $APP_ROOT; /home/thing/.rvm/gems/ruby-2.6.3/bin/bundle exec ruby bin/rails server -d -e production"
+
+## CMD="cd $APP_ROOT; /home/thing/.rvm/gems/ruby-2.6.3/bin/bundle exec ruby bin/rails server -d -e production"
+CMD="cd $APP_ROOT; /usr/share/rvm/rubies/ruby-2.6.3/bin/bundle exec ruby bin/rails server -d -e production"
 AS_USER=thing
 set -u
 
