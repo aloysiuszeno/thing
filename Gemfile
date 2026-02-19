@@ -19,6 +19,7 @@ gem 'coffee-rails'
 
 #gem 'less-rails'
 #gem 'therubyracer', platform: :ruby, require: 'v8'
+# was 0.2.15 below, won't compile
 gem 'mini_racer', '0.4.0'
 
 #gem 'less-js'
