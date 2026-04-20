@@ -12,7 +12,14 @@ Updating:
 		updated self.as to LXI, self.dates to 2026, 07, 09 to 2026 07 12, self.class_dates_raw 7-09 to 7-11
 	config/initializers/actionmailer.rb
 		mail moved to gmail last year, set username(smtp addr) to come from secrets like passwd and check in to git
-	 
+
+Other Notes:
+As long as it's rails 5.1 (later versions change this) if the server or secrets get changed, must recreate config/secrets.yml.enc	
+use this: 
+	bin/rails secrets:edit
+Then read secrets.yml into the editor and write/quit. 
+Restart server. 
+Symptoms where this needs doing:  Cannot Log in, cannot send mail 
 
 	
 	
