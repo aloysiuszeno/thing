@@ -72,10 +72,14 @@
   .col
     %h4 Statement of Site Ownership
     %p
-      This is the recognized web site for the Province of Malagentia of the
-      = mail_to 'East Kingdom', 'https://www.eastkingdom.org/'
+      This is a recognized web site for the Province of Malagentia of the
+      = (link_to 'East Kingdom', 'https://www.eastkingdom.org/')
       of the
-      = mail_to 'Society for Creative Anachronism, Inc.', 'https://www.sca.org/'<
-      , and is maintained by Aloysius Sartore. This site may contain electronic versions of the group’s governing documents. Any discrepancies between the electronic version of any information on this site and the printed version that is available from the originating office will be decided in favor of the printed version. For information on using photographs, articles, or artwork from this web site, please contact the Webminister at
-      = link_to 'webminister@malagentia.eastkingdom.org', 'mailto:webminister@malagentia.eastkingdom.org'<
-      . They will assist you in contacting the original creator of the piece. Please respect the legal rights of our contributors.
+      = (link_to 'Society for Creative Anachronism, Inc.,', 'https://www.sca.org/')
+      and is maintained by Aloysius Sartore. This site may contain electronic versions of the group&apos;s governing
+      documents. Any discrepancies between the electronic version of any information on this site and the printed
+      version that is available from the originating office will be decided in favor of the printed version. For
+      information on using photographs, articles, or artwork from this web site, please contact the Webminister at
+      = (mail_to 'webminister@malagentia.eastkingdom.org.', 'webminister@malagentia.eastkingdom.org')
+      They will assist you in contacting the original creator of the piece. Please respect the legal rights 
+      of our contributors.
